@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>$(MSBuildProjectName.Replace(" ", "_").Replace(".Sdk", ""))</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Quadro.Geo\Quadro.Geo.csproj" />
+    <ProjectReference Include="..\Quadro.Globalization\Quadro.Globalization.csproj" />
+    <ProjectReference Include="..\Quadro.Utils\Quadro.Utils.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Temp\" />
+  </ItemGroup>
+
+</Project>
