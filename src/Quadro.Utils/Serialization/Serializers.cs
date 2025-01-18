@@ -5,21 +5,8 @@ using System.Xml.Serialization;
 
 namespace CPXML
 {
-	public static class Serializers
+    public static class Serializers
     {
-
-
-        // Return a deep clone of an object of type T.
-        public static T DeepClone<T>(this T obj)
-        {
-            if (obj == null)
-                throw new NullReferenceException();
-
-            var deserializeSettings = new JsonSerializerSettings { ObjectCreationHandling = ObjectCreationHandling.Replace };
-            var serializeSettings = new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore };
-            return JsonConvert.DeserializeObject<T>(JsonConvert.SerializeObject(obj, serializeSettings), deserializeSettings);
-        }
-    
 
         public static String GetRootElement(string filename)
         {
@@ -35,6 +22,15 @@ namespace CPXML
             return xmlDoc.DocumentElement.Name;
         }
 
+        public static T DeepClone<T>(this T obj)
+        {
+            if (obj == null)
+                throw new NullReferenceException();
+
+            var deserializeSettings = new JsonSerializerSettings { ObjectCreationHandling = ObjectCreationHandling.Replace };
+            var serializeSettings = new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore };
+            return JsonConvert.DeserializeObject<T>(JsonConvert.SerializeObject(obj, serializeSettings), deserializeSettings);
+        }
 
         public static string SerializeToString<T>(object o)
         {
@@ -53,9 +49,6 @@ namespace CPXML
             }
         }
 
-
-
-
         public static void SerializeToFile<T>(object o, string filename)
         {
             var ns = new XmlSerializerNamespaces();
@@ -64,21 +57,8 @@ namespace CPXML
             TextWriter writer = new StreamWriter(filename);
             serializer.Serialize(writer, o, ns);
             writer.Close();
-         }
-
-
-        public static T DeSerializeStringNoRoot<T>(string xml)
-        {
-
-            XmlSerializer deserializer = new XmlSerializer(typeof(T));
-            TextReader reader = new StringReader(xml);
-            object obj = deserializer.Deserialize(reader);
-            T XmlData = (T)obj;
-            reader.Close();
-
-            return XmlData;
-
         }
+
 
         public static T DeSerializeString<T>(string xml)
         {
@@ -93,41 +73,22 @@ namespace CPXML
             return XmlData;
 
         }
-        /// <summary>
-        /// De-serializes an XML file to an orders collection.
-        /// </summary>
-        /// <param name="filename"></param>
-        /// <returns></returns>
+
         public static T DeSerializeFile<T>(string filename)
         {
-
-          
             if (File.Exists(filename))
             {
+                string rootelement = typeof(T).Name;
+                XmlSerializer deserializer = new XmlSerializer(typeof(T), new XmlRootAttribute(rootelement));
+                TextReader reader = new StreamReader(filename);
+                object obj = deserializer.Deserialize(reader);
+                T XmlData = (T)obj;
+                reader.Close();
 
-                try
-                {
-
-                    string rootelement = typeof(T).Name;
-                    XmlSerializer deserializer = new XmlSerializer(typeof(T), new XmlRootAttribute(rootelement));
-                    TextReader reader = new StreamReader(filename);
-                    object obj = deserializer.Deserialize(reader);
-                    T XmlData = (T)obj;
-                    reader.Close();
-
-                    return XmlData;
-
-                }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
-
+                return XmlData;
             }
             else
             {
-
-             
                 Exception filenotfound = new FileNotFoundException();
                 throw (filenotfound);
             }
@@ -156,42 +117,23 @@ namespace CPXML
 
         }
 
-        /// <summary>
-        /// De-serializes an XML file to an orders collection.
-        /// </summary>
-        /// <param name="filename"></param>
-        /// <returns></returns>
         public static T DeSerialize<T>(string filename)
         {
-
-
             if (File.Exists(filename))
             {
+                string rootelement = typeof(T).Name;
+                XmlSerializer deserializer = new XmlSerializer(typeof(T), new XmlRootAttribute(rootelement));
+                TextReader reader = new StreamReader(filename);
+                object obj = deserializer.Deserialize(reader);
+                T XmlData = (T)obj;
+                reader.Close();
 
-                try
-                {
-
-                    string rootelement = typeof(T).Name;
-                    XmlSerializer deserializer = new XmlSerializer(typeof(T), new XmlRootAttribute(rootelement));
-                    TextReader reader = new StreamReader(filename);
-                    object obj = deserializer.Deserialize(reader);
-                    T XmlData = (T)obj;
-                    reader.Close();
-
-                    return XmlData;
-
-                }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
-
+                return XmlData;
             }
             else
             {
                 throw new FileNotFoundException(filename + " not found.");
             }
-
 
         }
 
