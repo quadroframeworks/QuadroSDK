@@ -12,8 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Quadro.Globalization\Quadro.Globalization.csproj" />
-    <ProjectReference Include="..\Quadro.Utils\Quadro.Utils.csproj" />
+    <ProjectReference Include="..\..\..\QuadroSDK\src\Quadro.Globalization\Quadro.Globalization.csproj" />
+    <ProjectReference Include="..\..\..\QuadroSDK\src\Quadro.Utils\Quadro.Utils.csproj" />
   </ItemGroup>
 
 </Project>
