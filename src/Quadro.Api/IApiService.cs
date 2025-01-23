@@ -30,7 +30,8 @@ namespace Quadro.Api
         Task<DataDocument> Read(string endpoint, string id);
         Task<DataDocument> Update(string endpoint, DataDocument document);
         Task<DataDocument> Delete(string endpoint, DataDocument document, string dtoid);
-        Task<DataDocument> DoCustom(string endpoint, DataDocument document);
+		Task<DataDocument> DoCustom(string endpoint);
+		Task<DataDocument> DoCustom(string endpoint, DataDocument document);
 		Task<DataDocument> DoCustom(string endpoint, DataDocument document, string dtoid);
 		Task<DataDocument> DoCustom(string endpoint, CustomActionArgument customarg);
         Task<DataDocument> Validate(string endpoint, DataDocument document);

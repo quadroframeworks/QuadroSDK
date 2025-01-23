@@ -59,8 +59,10 @@ namespace Quadro.Globalization
                 return "€";
             else if (unit == Unit.Percentage)
                 return "%";
+            else if (unit == Unit.Wperm2K)
+                return "W/m²K";
 
-            var cached = unitTranslations.TryGetValue(unit, out string? unitTranslation);
+			var cached = unitTranslations.TryGetValue(unit, out string? unitTranslation);
             if (!cached)
             {
                 unitTranslation = unit.ToString();

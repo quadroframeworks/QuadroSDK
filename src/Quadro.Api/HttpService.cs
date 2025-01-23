@@ -16,6 +16,7 @@ using Quadro.Utils.Logging;
 using System.Net;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
+using System.Reflection.Metadata;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -24,6 +25,7 @@ namespace Quadro.Api
 	public class HttpService : IApiService
     {
         public static Uri BaseUrl = new Uri("https://localhost:7073/");
+        //public static Uri BaseUrl = new Uri("https://cpframesapibackend20240830171952.azurewebsites.net");
 
         private ILog log;
         public HttpService(ILog log)
@@ -321,7 +323,14 @@ namespace Quadro.Api
             return await ReadFromJsonAsync<DataDocument>(response);
         }
 
-        public async Task<DataDocument> DoCustom(string endpoint, DataDocument document)
+		public async Task<DataDocument> DoCustom(string endpoint)
+		{
+			var client = GetClient();
+            var response = await client.GetAsync(endpoint);
+			return await ReadFromJsonAsync<DataDocument>(response);
+		}
+
+		public async Task<DataDocument> DoCustom(string endpoint, DataDocument document)
         {
             var client = GetClient();
             var response = await client.PutAsJsonAsync<DataDocument>(endpoint, document);
@@ -631,6 +640,7 @@ namespace Quadro.Api
 			var response = await client.PutAsJsonAsync<DataDocument>(url, document);
 			return await ReadFromJsonAsync<WebFrameModelDto>(response);
 		}
+
 		#endregion
 
 
