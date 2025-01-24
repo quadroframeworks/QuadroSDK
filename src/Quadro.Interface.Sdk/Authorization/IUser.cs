@@ -16,9 +16,10 @@ namespace Quadro.Interface.Authorization
 
     public enum UserRole
     {
-        Administrator,
-        Customer,
-        User,
-        EndCustomer,
+        WebUser = 0,
+		EndCustomer = 10,
+		CustomerUser = 20,
+		CustomerAdministrator = 30,
+		Administrator = 100,
     }
 }
