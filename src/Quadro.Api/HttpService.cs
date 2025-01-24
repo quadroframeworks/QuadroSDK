@@ -24,14 +24,14 @@ namespace Quadro.Api
 {
 	public class HttpService : IApiService
     {
-        public static Uri BaseUrl = new Uri("https://localhost:7073/");
-        //public static Uri BaseUrl = new Uri("https://cpframesapibackend20240830171952.azurewebsites.net");
 
-        private ILog log;
-        public HttpService(ILog log)
+        private readonly ILog log;
+        private readonly IApiConfig config;
+        public HttpService(ILog log, IApiConfig config)
         {
             this.log = log;
-            
+            this.config = config;
+
             jsonoptions = new JsonSerializerOptions(JsonSerializerDefaults.Web);
             jsonoptions.NumberHandling = JsonNumberHandling.AllowNamedFloatingPointLiterals;
         }
@@ -39,17 +39,23 @@ namespace Quadro.Api
         private JsonSerializerOptions jsonoptions;
         private string? bearertoken = null;
 
-		#region Http
+        #region Http
+
+        private HttpClient? currentClient;
 		private HttpClient GetClient()
         {
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-            HttpClient client = new HttpClient();
-            client.BaseAddress = BaseUrl;
-            client.Timeout = TimeSpan.FromSeconds(900);
-            client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", bearertoken);
-            return client;
+            if (currentClient == null)
+            {
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+				currentClient = new HttpClient();
+                currentClient.BaseAddress = new Uri(config.BaseUri);
+				currentClient.Timeout = TimeSpan.FromSeconds(900);
+				currentClient.DefaultRequestHeaders.Accept.Clear();
+				currentClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            }
+
+			currentClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", bearertoken);
+            return currentClient;
         }
 
         private async Task<T> ReadFromJsonAsync<T>(HttpResponseMessage response)
