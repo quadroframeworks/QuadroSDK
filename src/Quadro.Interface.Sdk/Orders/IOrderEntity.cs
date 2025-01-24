@@ -2,8 +2,7 @@
 {
 	public interface IOrderEntity
     {
-        string? ERPCustomerId { get; set; }
-        string? Customer { get; set; }
+        string? CustomerId { get; set; }
         string OrderDescription { get; set; }
         string OrderNumber { get; set; }
         IEnumerable<IOrderLine> Lines { get; }

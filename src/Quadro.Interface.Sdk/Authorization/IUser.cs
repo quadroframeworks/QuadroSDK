@@ -5,8 +5,9 @@ namespace Quadro.Interface.Authorization
 	public interface IUser
     {
         string Id { get; }
-        string CompanyId { get; set; } 
-        string Name { get; set; }
+        string CompanyId { get; set; }
+		string? CustomerId { get; set; }
+		string Name { get; set; }
         string Email { get; set; }
         string Password { get; set; }
         Language Language { get; set; }

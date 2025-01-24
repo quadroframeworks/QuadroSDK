@@ -20,8 +20,8 @@
     public interface IQuoteOrderLine : ILineBase
     {
         string BomId { get; set; }
-        double CostPrice { get; set; }
-        double SalesPrice { get; set; }
+        double UnitCostPrice { get; set; }
+        double UnitSalesPrice { get; set; }
         string Description { get; set; }
     }
 
