@@ -115,12 +115,12 @@ namespace Quadro.Api
 
 		#region Authorization
 
-		public async Task<NewAccountResult> CreateBusinessAccount(NewBusinessAccountInfo accountInfo)
+		public async Task<NewBusinessAccountResult> CreateBusinessAccount(BusinessAccountInfo accountInfo)
 		{
 			var url = $"/Authorization/CreateBusinessAccount";
 			var client = GetClient();
-			var response = await client.PutAsJsonAsync<NewBusinessAccountInfo>(url, accountInfo);
-			return await ReadFromJsonAsync<NewAccountResult>(response);
+			var response = await client.PutAsJsonAsync<BusinessAccountInfo>(url, accountInfo);
+			return await ReadFromJsonAsync<NewBusinessAccountResult>(response);
 		}
 
 
@@ -193,7 +193,7 @@ namespace Quadro.Api
 			return result;
 		}
 
-		public async Task<ChangePasswordResult> ChangePassword(string oldpassword, string newpassword)
+		public async Task<ChangePasswordResult> ResetPassword(string oldpassword, string newpassword)
 		{
 			var url = $"/Authorization/ChangePassword?oldpassword={oldpassword}&newpassword={newpassword}";
 			var client = GetClient();

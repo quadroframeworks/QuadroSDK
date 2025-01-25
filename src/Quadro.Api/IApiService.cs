@@ -69,20 +69,20 @@ namespace Quadro.Api
         Task<WorkbookDto> GetWorkbook(string endpoint, DataDocument document, string dtoid);
         Task<string> GetDxfDrawing(string endpoint, DataDocument document, string dtoid);
 
+		//Auth unauthorized
+		Task<UserAccountInfo> CreateUserAccount(NewUserAccountInfo accountInfo);
+		Task<LoginResult> SignIn(string email, string password);
 
-        //Authentication
-        Task<NewAccountResult> CreateBusinessAccount(NewBusinessAccountInfo accountInfo);
+		//Auth users
+		Task<UserAccountInfo> UpdateUserAccount(UserAccountInfo accountInfo);
+		Task<DeleteUserAccountResult> DeleteUserAccount(string email);
+		Task<ChangePasswordResult> ResetPassword(string oldpassword, string newpassword);
+
+		//Auth business
+		Task<NewBusinessAccountResult> CreateBusinessAccount(BusinessAccountInfo accountInfo);
         Task<BusinessAccountInfo> ReadBusinessAccountInfo();
         Task<BusinessAccountInfo> UpdateBusinessAccountInfo(BusinessAccountInfo accountInfo);
         Task<DeleteBusinessAccountResult> DeleteBusinessAccount();
-        Task<UserAccountInfo> CreateUserAccount(NewUserAccountInfo accountInfo);
-        Task<IEnumerable<UserAccountInfo>> ReadUserAccounts();
-        Task<UserAccountInfo> UpdateUserAccount(UserAccountInfo accountInfo);
-        Task<DeleteUserAccountResult> DeleteUserAccount(string email);
-        Task<LoginResult> SignIn(string email, string password);
-        Task<ChangePasswordResult> ChangePassword(string oldpassword, string newpassword);
-        Task<IEnumerable<SelectableValue>> GetSelectableImages();
-        Task<IEnumerable<SelectableValue>> GetSelectableCustomers();
 
         //Production
         Task<IEnumerable<ProductionFrameDto>> GetProductionFrames(string endpoint, string manufacturingorderId);
