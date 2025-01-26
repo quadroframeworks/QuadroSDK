@@ -115,6 +115,25 @@ namespace Quadro.Api
 
 		#region Authorization
 
+		public async Task<UserSignInResult> SignIn(string email, string password)
+		{
+			var url = $"/Authorization/SignIn?email={email}&password={password}";
+			var client = GetClient();
+			var response = await client.GetAsync(url);
+			var result = await ReadFromJsonAsync<UserSignInResult>(response);
+			bearertoken = result.Bearer;
+			return result;
+		}
+
+		public async Task<UserSignOutResult> SignOut()
+		{
+			var url = $"/Authorization/SignOut";
+			var client = GetClient();
+			var response = await client.GetAsync(url);
+			var result = await ReadFromJsonAsync<UserSignOutResult>(response);
+			return result;
+		}
+
 		public async Task<NewBusinessAccountResult> CreateBusinessAccount(BusinessAccountInfo accountInfo)
 		{
 			var url = $"/Authorization/CreateBusinessAccount";
@@ -182,16 +201,6 @@ namespace Quadro.Api
 			return await ReadFromJsonAsync<DeleteUserAccountResult>(response);
 		}
 
-
-		public async Task<LoginResult> SignIn(string email, string password)
-		{
-			var url = $"/Authorization/SignIn?email={email}&password={password}";
-			var client = GetClient();
-			var response = await client.GetAsync(url);
-			var result = await ReadFromJsonAsync<LoginResult>(response);
-			bearertoken = result.Bearer;
-			return result;
-		}
 
 		public async Task<ChangePasswordResult> ResetPassword(string oldpassword, string newpassword)
 		{

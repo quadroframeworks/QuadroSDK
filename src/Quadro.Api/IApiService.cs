@@ -69,9 +69,10 @@ namespace Quadro.Api
         Task<WorkbookDto> GetWorkbook(string endpoint, DataDocument document, string dtoid);
         Task<string> GetDxfDrawing(string endpoint, DataDocument document, string dtoid);
 
-		//Auth unauthorized
+		//Auth
 		Task<UserAccountInfo> CreateUserAccount(NewUserAccountInfo accountInfo);
-		Task<LoginResult> SignIn(string email, string password);
+		Task<UserSignInResult> SignIn(string email, string password);
+		Task<UserSignOutResult> SignOut();
 
 		//Auth users
 		Task<UserAccountInfo> UpdateUserAccount(UserAccountInfo accountInfo);

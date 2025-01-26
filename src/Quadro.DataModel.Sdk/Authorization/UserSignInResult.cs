@@ -2,9 +2,9 @@
 
 namespace Quadro.DataModel.Authorization
 {
-	public class LoginResult
+	public class UserSignInResult
     {
-        public bool IsValid { get; set; } = false;
+        public bool Succes { get; set; } = false;
         public string? UserEmail { get; set; }
         public string? LastName { get; set; }
 		public string? FirstName { get; set; }
