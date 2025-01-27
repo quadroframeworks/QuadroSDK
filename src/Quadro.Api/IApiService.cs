@@ -73,6 +73,7 @@ namespace Quadro.Api
 		Task<UserAccountInfo> CreateUserAccount(NewUserAccountInfo accountInfo);
 		Task<UserSignInResult> SignIn(string email, string password);
 		Task<UserSignOutResult> SignOut();
+        Task<UserRoleInfo> GetUserRoleInfo();
 
 		//Auth users
 		Task<UserAccountInfo> UpdateUserAccount(UserAccountInfo accountInfo);

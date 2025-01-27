@@ -131,6 +131,16 @@ namespace Quadro.Api
 			var client = GetClient();
 			var response = await client.GetAsync(url);
 			var result = await ReadFromJsonAsync<UserSignOutResult>(response);
+            bearertoken = null;
+			return result;
+		}
+
+		public async Task<UserRoleInfo> GetUserRoleInfo()
+		{
+			var url = $"/Authorization/GetUserRoleInfo";
+			var client = GetClient();
+			var response = await client.GetAsync(url);
+			var result = await ReadFromJsonAsync<UserRoleInfo>(response);
 			return result;
 		}
 
