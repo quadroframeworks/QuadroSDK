@@ -146,7 +146,7 @@ namespace Quadro.Documents
             else if (type == typeof(int))
                 result = Value == null ? null : Convert.ToInt32(Value);
             else if (type == typeof(double))
-                result = Value == null ? null : Convert.ToDouble(Value);
+                result = Value == null ? null : Convert.ToDouble(Value, Globalization.Parsing.ParsingCulture);
             else if (type == typeof(byte))
                 result = Value == null ? null : Convert.ToByte(Value);
             else if (type == typeof(TimeSpan))
@@ -158,7 +158,7 @@ namespace Quadro.Documents
             else if (type == typeof(Nullable<int>))
                 result = Value == null ? null : Convert.ToInt32(Value);
             else if (type == typeof(Nullable<double>))
-                result = Value == null ? null : Convert.ToDouble(Value);
+                result = Value == null ? null : Convert.ToDouble(Value, Globalization.Parsing.ParsingCulture);
             else if (type == typeof(Nullable<byte>))
                 result = Value == null ? null : Convert.ToByte(Value);
             else if (type == typeof(Nullable<TimeSpan>))
