@@ -29,7 +29,7 @@
     {
         ProductionState State { get;set; }
         string? BomId { get; set; }
-        string DeliveryId { get; set; } 
+        string? DeliveryId { get; set; } 
         int DeliveryIndex { get; set; }
     }
 
