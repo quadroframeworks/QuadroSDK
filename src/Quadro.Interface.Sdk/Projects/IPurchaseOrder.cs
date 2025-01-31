@@ -1,6 +1,6 @@
 ﻿using Quadro.Base.Catalog;
 
-namespace Quadro.Interface.Orders
+namespace Quadro.Interface.Projects
 {
 	public interface IPurchaseOrder
     {

@@ -1,6 +1,6 @@
 ﻿using Quadro.Globalization.Attributes;
 
-namespace Quadro.Interface.Orders
+namespace Quadro.Interface.Projects
 {
 	public interface IQuoteDto
     {

@@ -1,4 +1,4 @@
-﻿namespace Quadro.Interface.Orders
+﻿namespace Quadro.Interface.Projects
 {
 	public interface IDelivery
     {

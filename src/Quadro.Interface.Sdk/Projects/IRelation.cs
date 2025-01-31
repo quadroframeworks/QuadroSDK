@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Quadro.Interface.Orders
+namespace Quadro.Interface.Projects
 {
     public interface IRelation
     {

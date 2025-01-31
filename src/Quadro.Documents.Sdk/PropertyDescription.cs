@@ -25,7 +25,8 @@ namespace Quadro.Documents
         public bool IsReadonly { get; set; } = false;
         public bool IsEnum { get; set; }
         public bool IsColumnVisible { get; set; } = true;
-        public ValueType ValueType { get; set; }
+        public bool ShowColumnActionOnly { get; set; } = false;
+		public ValueType ValueType { get; set; }
         public SelectableValueCollection? EnumValues { get; set; }
         public PropertySelectionType SelectionType { get; set; }
         public string? SelectableItemsEndpoint { get; set; }
