@@ -29,7 +29,8 @@ namespace Quadro.Interface.Solutions
         IEnumerable<IPartConfiguration> PartConfigurations { get; }
         IEnumerable<IAdditionalPart> AdditionalParts { get; }
         IEnumerable<ISolutionFilling> Fillings { get; }
-        IEnumerable<IOperationSetPlacement> OperationSets { get; }
+		IEnumerable<ISubFrameWork> SubFrameWorks { get; }
+		IEnumerable<IOperationSetPlacement> OperationSets { get; }
         IEnumerable<ICertificateTest> CertificateTests { get; }
 
     }
@@ -95,6 +96,27 @@ namespace Quadro.Interface.Solutions
         int Index { get; set; }
         FramePartType ChildPartType { get; set; }
         int ChildPartIndex { get; set; }
+    }
+
+    public interface ISubFrameWork
+    {
+		SubFrameWorkSide Side { get; }
+        double Width { get; }
+		double Height { get; }
+        double OffsetZ { get; }
+		double OffsetBottom { get; }
+		double OffsetTop { get; }
+		double OffsetLeft { get; }
+		double OffsetRight { get; }
+        string? FrameWorkAssemblyId { get; }
+	}
+
+    public enum SubFrameWorkSide
+    {
+        Bottom = 0,
+        Top = 1,
+        Left = 2,
+        Right = 3,
     }
 
     public enum FrameSolutionStatus

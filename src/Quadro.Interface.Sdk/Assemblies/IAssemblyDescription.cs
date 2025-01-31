@@ -85,7 +85,10 @@ namespace Quadro.Interface.Assemblies
         [EnumValue("Filling", Globalization.Language.en)]
         [EnumValue("Vakvulling", Globalization.Language.nl)]
         Filling,
-    }
+		[EnumValue("Framework", Globalization.Language.en)]
+		[EnumValue("Rekwerk", Globalization.Language.nl)]
+		FrameWork,
+	}
 
     public enum AssemblyContentType
     {
@@ -107,7 +110,10 @@ namespace Quadro.Interface.Assemblies
         [EnumValue("Plate", Globalization.Language.en)]
         [EnumValue("Plaat", Globalization.Language.nl)]
         Plate,
-    }
+		[EnumValue("Framework", Globalization.Language.en)]
+		[EnumValue("Rekwerk", Globalization.Language.nl)]
+		Framework,
+	}
 
     public enum AssemblyFillingType
     {
