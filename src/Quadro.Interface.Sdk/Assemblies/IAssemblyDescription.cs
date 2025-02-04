@@ -31,6 +31,7 @@ namespace Quadro.Interface.Assemblies
         IEnumerable<IPartConfiguration> PartConfigurations { get; }
         IEnumerable<IOperationSetPlacement> OperationSets { get; }
         IEnumerable<IAssemblyFilling> Fillings { get; }
+        IEnumerable<IRabbetSelectionFilter> RabbetSelectionFilters { get; }
     }
     public interface IMainAssemblyDescription : IAssemblyDescription
     {
@@ -229,6 +230,13 @@ namespace Quadro.Interface.Assemblies
         double X { get; set; }
         double Y { get; set; }
     }
+
+    public interface IRabbetSelectionFilter
+    {
+		public string? RabbetSelectionId { get; set; }
+		public string? RabbetSelectionName { get; set; }
+		public bool Allowed { get; set; }
+	}
 
     public enum ReferencePointType
     {
