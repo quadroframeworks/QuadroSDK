@@ -127,7 +127,8 @@ namespace Quadro.Documents
         public string PropertyName { get; set; } = null!;
         public bool IsValid { get; set; } = true;
         public bool IsVisible { get; set; } = true;
-        public string? ValidationMessage { get; set; }
+		public bool IsReadOnly { get; set; } = false;
+		public string? ValidationMessage { get; set; }
         public List<DataAction> Actions { get; set; } = new List<DataAction>();
 
         public T? GetValue<T>()
@@ -197,7 +198,8 @@ namespace Quadro.Documents
         public string? ItemId{ get; set; }
         public string PropertyName { get; set; } = null!;
         public bool IsVisible { get; set; } = true;
-        public List<DataAction> Actions { get; set; } = new List<DataAction>();
+		public bool IsReadOnly { get; set; } = false;
+		public List<DataAction> Actions { get; set; } = new List<DataAction>();
     }
 
     public class DataListProperty
@@ -214,7 +216,8 @@ namespace Quadro.Documents
         public List<string> ItemIds { get; set; } = new List<string>();
         public string PropertyName { get; set; } = null!;
         public bool IsVisible { get; set; } = true;
-        public List<DataAction> Actions { get; set; } = new List<DataAction>();
+		public bool IsReadOnly { get; set; } = false;
+		public List<DataAction> Actions { get; set; } = new List<DataAction>();
     }
 
     public class DataAction

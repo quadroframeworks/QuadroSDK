@@ -22,8 +22,9 @@ namespace Quadro.Documents
         public double? MinValue { get; set; } = null;
         public double? MaxValue { get; set; } = null;
         public bool AllowNull { get; set; }
-        public bool IsReadonly { get; set; } = false;
-        public bool IsEnum { get; set; }
+        public bool? IsVisible { get; set; } = null;
+		public bool? IsReadOnly { get; set; } = null;
+		public bool IsEnum { get; set; }
         public bool IsColumnVisible { get; set; } = true;
         public bool ShowColumnActionOnly { get; set; } = false;
 		public ValueType ValueType { get; set; }
@@ -36,7 +37,10 @@ namespace Quadro.Documents
         [JsonIgnore]
         public Func<DataDocument, DataInstance, bool>? IsVisibleCondition { get; set; }
 
-        [JsonIgnore]
+		[JsonIgnore]
+		public Func<DataDocument, DataInstance, bool>? IsReadOnlyCondition { get; set; }
+
+		[JsonIgnore]
         public Func<DataDocument, DataInstance, SelectableValueCollection>? SelectableItemsSelector { get; set; }
 
         [JsonIgnore]

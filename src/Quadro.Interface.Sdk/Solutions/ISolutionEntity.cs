@@ -18,7 +18,8 @@ namespace Quadro.Interface.Solutions
         string Name { get; set; }
         string WireFrameId { get; set; }
         string MainAssemblyId { get; set; }
-        string? BorderApplicationId { get; set; }
+		string? BorderAssemblyGroupId { get; set; }
+		string? BorderApplicationId { get; set; }
         string? BorderAssemblyId { get; set; }
         string? BorderRabbetSelectionId { get; set; }
         string? RawMaterialId { get; set; }
