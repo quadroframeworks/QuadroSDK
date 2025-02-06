@@ -117,6 +117,7 @@ namespace Quadro.Api
 
 		public async Task<UserSignInResult> SignIn(string email, string password)
 		{
+            bearertoken = null;
 			var url = $"/Authorization/SignIn?email={email}&password={password}";
 			var client = GetClient();
 			var response = await client.GetAsync(url);
