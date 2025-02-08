@@ -1,4 +1,6 @@
-﻿namespace Quadro.Interface.Glass
+﻿using Quadro.Interface.Solutions;
+
+namespace Quadro.Interface.Glass
 {
 	public interface IGlassEntity
     {
@@ -9,9 +11,8 @@
         string LayerString { get; set; }
         string? GlassGroupId { get; set; }
         bool IsWebReleased { get; set; }
-        bool Hardened { get; set; }
-        bool Laminated { get; set; }
-        double UValue { get; set; }
+		FastSelectionGlassConfig GlassConfig { get; set; }
+		double UValue { get; set; }
         double LTAValue { get; set; }
         double ZTAValue { get; set; }
         double GValue { get; set; }

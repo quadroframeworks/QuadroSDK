@@ -159,13 +159,21 @@ namespace Quadro.Interface.Solutions
         [EnumValue("Normaal", Globalization.Language.nl)]
         Normal = 0,
 
-        [EnumValue("Laminated", Globalization.Language.en)]
-        [EnumValue("Gelaagd", Globalization.Language.nl)]
-        Laminated = 1,
+        [EnumValue("Laminated indoors", Globalization.Language.en)]
+        [EnumValue("Binnen gelaagd", Globalization.Language.nl)]
+        LaminatedIndoors = 1,
 
-        [EnumValue("Hardened", Globalization.Language.en)]
+		[EnumValue("Laminated outdoors", Globalization.Language.en)]
+		[EnumValue("Buiten gelaagd", Globalization.Language.nl)]
+		LaminatedOutdoors = 2,
+
+		[EnumValue("Laminated indoors/outdoors", Globalization.Language.en)]
+		[EnumValue("Binnen/buiten gelaagd", Globalization.Language.nl)]
+		LaminatedBoth = 3,
+
+		[EnumValue("Hardened", Globalization.Language.en)]
         [EnumValue("Gehard", Globalization.Language.nl)]
-        Hardened = 2,
+        Hardened = 10,
     }
 
 }
