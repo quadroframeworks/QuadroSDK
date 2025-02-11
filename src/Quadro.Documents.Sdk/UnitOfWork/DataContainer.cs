@@ -13,8 +13,16 @@ namespace Quadro.Documents.UnitOfWork
         public string Id { get; set; } = null!;
         public string Hash { get; set; } = null!;
         public string Type { get; set; } = null!;
+        public DataContainerState State { get; set; }
         public IStorable Model { get; set; } = null!;
         public DataDocument? ViewModel { get; set; }
     }
 
+    public enum DataContainerState
+    {
+        Created = 0,
+        Read = 1,
+        Updated = 2,
+        Deleted = 3,
+    }
 }

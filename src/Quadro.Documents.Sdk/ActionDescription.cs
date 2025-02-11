@@ -8,6 +8,7 @@ namespace Quadro.Documents
         public ActionDescription() { }
 
         public List<NamingTranslation> Headers { get; set; } = new List<NamingTranslation>();
+        public string Id { get; set; } = Guid.NewGuid().ToString();
         public string Url { get; set; } = null!;
         public bool IsColumnVisible { get; set; }
 
