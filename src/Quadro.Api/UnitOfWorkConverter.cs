@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Text.Json.Serialization.Metadata;
+using System.Text.Unicode;
 using System.Threading.Tasks;
 
 namespace Quadro.Api
@@ -18,7 +20,14 @@ namespace Quadro.Api
         public UnitOfWorkConverter(IEntityTypeProvider typeProvider)
         {
             this.typeProvider = typeProvider;
+            jsonoptions = new JsonSerializerOptions(JsonSerializerDefaults.Web);
+            jsonoptions.NumberHandling = JsonNumberHandling.AllowNamedFloatingPointLiterals;
+            jsonoptions.IncludeFields = true;
+            
+           
         }
+
+        private JsonSerializerOptions jsonoptions;
 
         public override UnitOfWork? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
@@ -42,11 +51,11 @@ namespace Quadro.Api
 
                     reader.Read(); // Move to property value
 
-                    if (propertyName == "Id")
+                    if (propertyName == "id")
                     {
                         unitOfWork.Id = reader.GetString()!;
                     }
-                    else if (propertyName == "Containers")
+                    else if (propertyName == "containers")
                     {
                         if (reader.TokenType == JsonTokenType.StartArray)
                         {
@@ -55,6 +64,10 @@ namespace Quadro.Api
                                 containers.Add(ReadDataContainer(ref reader, options));
                             }
                         }
+                    }
+                    else
+                    {
+                        throw new Exception($"Unkown property {propertyName} in json converter for UnitOfWork");
                     }
                 }
             }
@@ -76,22 +89,22 @@ namespace Quadro.Api
             {
                 JsonElement root = doc.RootElement;
 
-                if (root.TryGetProperty("Id", out JsonElement idElement))
+                if (root.TryGetProperty("id", out JsonElement idElement))
                     container.Id = idElement.GetString()!;
 
-                if (root.TryGetProperty("Hash", out JsonElement hashElement))
+                if (root.TryGetProperty("hash", out JsonElement hashElement))
                     container.Hash = hashElement.GetString()!;
 
-                if (root.TryGetProperty("Type", out JsonElement typeElement))
+                if (root.TryGetProperty("type", out JsonElement typeElement))
                     container.Type = typeElement.GetString()!;
 
-                if (root.TryGetProperty("State", out JsonElement stateElement))
+                if (root.TryGetProperty("state", out JsonElement stateElement))
                     container.State = (DataContainerState)stateElement.GetInt32();
 
-                if (root.TryGetProperty("Model", out JsonElement modelElement))
+                if (root.TryGetProperty("model", out JsonElement modelElement))
                     modelJson = modelElement.GetRawText(); // Extract raw JSON
 
-                if (root.TryGetProperty("ViewModel", out JsonElement viewModelElement))
+                if (root.TryGetProperty("viewModel", out JsonElement viewModelElement))
                     container.ViewModel = JsonSerializer.Deserialize<DataDocument>(viewModelElement.GetRawText(), options);
             }
 
@@ -116,8 +129,40 @@ namespace Quadro.Api
 
         public override void Write(Utf8JsonWriter writer, UnitOfWork value, JsonSerializerOptions options)
         {
-            // Implement your custom serialization logic if needed
-            JsonSerializer.Serialize(writer, value);
+            writer.WriteStartObject();
+
+            // Write Id
+            writer.WriteString("id", value.Id);
+
+            // Serialize Containers
+            writer.WritePropertyName("containers");
+            writer.WriteStartArray();
+
+            foreach (var container in value.Containers)
+            {
+                writer.WriteStartObject();
+
+                writer.WriteString("id", container.Id);
+                writer.WriteString("hash", container.Hash);
+                writer.WriteString("type", container.Type);
+                writer.WriteNumber("state", (int)container.State);
+
+                // Serialize Model (full object instead of just Id)
+                writer.WritePropertyName("model");
+                JsonSerializer.Serialize(writer, container.Model, container.Model.GetType(), options);
+
+                // Serialize ViewModel
+                writer.WritePropertyName("viewModel");
+                JsonSerializer.Serialize(writer, container.ViewModel, options);
+
+                writer.WriteEndObject();
+            }
+
+            writer.WriteEndArray();
+            writer.WriteEndObject();
+
+            return;
+
         }
     }
 

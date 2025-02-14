@@ -1,4 +1,6 @@
-﻿using Quadro.Documents.UnitOfWork;
+﻿using Quadro.Documents;
+using Quadro.Documents.Sdk;
+using Quadro.Documents.UnitOfWork;
 using Quadro.Globalization;
 using Quadro.Utils.Logging;
 using System.Net;
@@ -9,7 +11,9 @@ using System.Text.Json.Serialization;
 
 namespace Quadro.Api
 {
-    public class UnitOfWorkService:IUnitOfWorkService
+
+
+    public class UnitOfWorkService : IUnitOfWorkService
     {
 
         private readonly ILog log;
@@ -21,8 +25,6 @@ namespace Quadro.Api
 
             jsonoptions = new JsonSerializerOptions(JsonSerializerDefaults.Web);
             jsonoptions.NumberHandling = JsonNumberHandling.AllowNamedFloatingPointLiterals;
-            jsonoptions.PropertyNameCaseInsensitive = true;
-            jsonoptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
             jsonoptions.Converters.Add(new UnitOfWorkConverter(new EntityTypeProvider()));
         }
 
@@ -101,31 +103,102 @@ namespace Quadro.Api
 
         }
 
-        public async Task<UnitOfWork> Create(string endpoint, UnitOfWork uow, string actionId)
+
+
+        #endregion
+
+        #region UnitOfWork general
+        public async Task<UnitOfWork> StartNew(string endpoint)
         {
             var client = GetClient();
-            HttpResponseMessage response = await client.PutAsJsonAsync<UnitOfWork>($"{endpoint}?actionId={actionId}", uow);
+            HttpResponseMessage response = await client.GetAsync($"{endpoint}");
             return await ReadFromJsonAsync<UnitOfWork>(response);
         }
 
-        public Task<UnitOfWork> Read(string endpoint, UnitOfWork uow, string entityId)
+        public async Task<UnitOfWork> Commit(string endpoint, UnitOfWork uow)
         {
-            throw new NotImplementedException();
+            var client = GetClient();
+            HttpResponseMessage response = await client.PutAsJsonAsync<UnitOfWork>($"{endpoint}", uow, jsonoptions);
+            return await ReadFromJsonAsync<UnitOfWork>(response);
         }
 
-        public Task<UnitOfWork> Update(string endpoint, UnitOfWorkUpdate update)
+        public async Task<UnitOfWork> Discard(string endpoint, UnitOfWork uow)
         {
-            throw new NotImplementedException();
+            var client = GetClient();
+            HttpResponseMessage response = await client.PutAsJsonAsync<UnitOfWork>($"{endpoint}", uow, jsonoptions);
+            return await ReadFromJsonAsync<UnitOfWork>(response);
         }
 
-        public Task<UnitOfWork> Delete(string endpoint, UnitOfWork uow, string entityId)
+        #endregion
+
+
+        #region UnitOfWork per entity
+
+        public async Task<DataTypeSchema> GetSchema(string endpoint)
         {
-            throw new NotImplementedException();
+            var client = GetClient();
+            HttpResponseMessage response = await client.GetAsync($"{endpoint}");
+            return await ReadFromJsonAsync<DataTypeSchema>(response);
         }
 
-        public Task<UnitOfWork> DoAction(string endpoint, UnitOfWork uow, string entityId, string actionId)
+        public async Task<UnitOfWork> Create(string endpoint, UnitOfWork uow, string actionId, string? dtoId = null)
         {
-            throw new NotImplementedException();
+            var client = GetClient();
+            HttpResponseMessage response = await client.PutAsJsonAsync<UnitOfWork>($"{endpoint}?actionId={actionId}&dtoId={dtoId}", uow, jsonoptions);
+            return await ReadFromJsonAsync<UnitOfWork>(response);
+        }
+
+        public async Task<UnitOfWork> Read(string endpoint, UnitOfWork uow, string? actionId, string dtoId)
+        {
+            var client = GetClient();
+            HttpResponseMessage response = await client.PutAsJsonAsync<UnitOfWork>($"{endpoint}?actionId={actionId}&dtoId={dtoId}", uow, jsonoptions);
+            return await ReadFromJsonAsync<UnitOfWork>(response);
+        }
+
+        public async Task<UnitOfWork> Update(string endpoint, UnitOfWorkUpdate update)
+        {
+            var client = GetClient();
+            HttpResponseMessage response = await client.PutAsJsonAsync<UnitOfWorkUpdate>($"{endpoint}", update, jsonoptions);
+            return await ReadFromJsonAsync<UnitOfWork>(response);
+        }
+
+        public async Task<UnitOfWork> UpdateProperty(string endpoint, UnitOfWork uow, string dtoId, string propertyName, string? value)
+        {
+            var client = GetClient();
+            HttpResponseMessage response = await client.PutAsJsonAsync<UnitOfWork>($"{endpoint}?dtoId={dtoId}&propertyName={propertyName}&value={value}", uow, jsonoptions);
+            return await ReadFromJsonAsync<UnitOfWork>(response);
+        }
+
+        public async Task<UnitOfWork> Delete(string endpoint, UnitOfWork uow, string? actionId, string dtoId)
+        {
+            var client = GetClient();
+            HttpResponseMessage response = await client.PutAsJsonAsync<UnitOfWork>($"{endpoint}?actionId={actionId}&dtoId={dtoId}", uow, jsonoptions);
+            return await ReadFromJsonAsync<UnitOfWork>(response);
+        }
+
+        public async Task<UnitOfWork> DoAction(string endpoint, UnitOfWork uow, string actionId, string dtoId)
+        {
+            var client = GetClient();
+            HttpResponseMessage response = await client.PutAsJsonAsync<UnitOfWork>($"{endpoint}?actionId={actionId}&dtoId={dtoId}", uow, jsonoptions);
+            return await ReadFromJsonAsync<UnitOfWork>(response);
+        }
+
+        #endregion
+
+        #region Collection calls
+
+        public async Task<EntityCollection> GetItems(string endpoint, string? filter)
+        {
+            var client = GetClient();
+            HttpResponseMessage response = await client.GetAsync($"{endpoint}?filter={filter}");
+            return await ReadFromJsonAsync<EntityCollection>(response);
+        }
+
+        public async Task<SelectableValueCollection> GetSelectableValues(string endpoint, UnitOfWork uow, string dtoId, string propertyName)
+        {
+            var client = GetClient();
+            HttpResponseMessage response = await client.PutAsJsonAsync<UnitOfWork>($"{endpoint}?dtoId={dtoId}&propertyName={propertyName}", uow, jsonoptions);
+            return await ReadFromJsonAsync<SelectableValueCollection>(response);
         }
 
         #endregion

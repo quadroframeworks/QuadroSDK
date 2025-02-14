@@ -1,6 +1,7 @@
 ﻿using Quadro.Documents.Filtering;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,15 +18,35 @@ namespace Quadro.Documents
 	/// </summary>
 	public class DataTypeSchema
     {
+
+        public string TypeName { get; set; } = null!;
+
         public string ControllerBaseUri { get; set; } = null!;
+
+        //Uow general
+        public string StartNewEndpoint { get; set; } = null!;
+        public string CommitEndPoint { get; set; } = null!;
+        public string DiscardEndPoint { get; set; } = null!;
+
+
+        //Uow per entity
         public string GetSchemaEndPoint { get; set; } = null!;
         public string GetSelectableValuesEndPoint { get; set; } = null!;
         public string GetItemsEndPoint { get; set; } = null!;
+        public string CreateEndPoint { get; set; } = null!;
+        public string ReadEndPoint { get; set; } = null!;
+        public string UpdateEndPoint { get; set; } = null!;
+        public string UpdatePropertyEndPoint { get; set; } = null!;
+        public string DeleteEndPoint { get; set; } = null!;
+
+
+        //Misc
         public string GetVariantsEndPoint { get; set; } = null!;
 		public string GetFilterTreeEndPoint { get; set; } = null!;
 		public string SetValueEndPoint { get; set; } = null!;
         public string ValidateEndPoint { get; set; } = null!;
-        public string CommitEndPoint { get; set; } = null!;
+
+
         public string? DataModelEndPoint {  get; set; }
         public bool SupportsVariants { get; set; }
         public bool SupportsProjectSpecifics { get; set; }
