@@ -38,6 +38,7 @@ namespace Quadro.Documents
         Update,
         Delete,
         CreateAndAdd,
+        Remove,
         CreateCopy,
         CreateVariant,
         Custom,
