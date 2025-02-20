@@ -42,7 +42,7 @@ namespace Quadro.Api
         public async Task<UnitOfWork> Create(UnitOfWork uow)
         {
             var createaction = schema.Actions.First(a => a.ActionType == ActionType.Create);
-            return await service.Create(schema.CreateEndPoint, uow, createaction.Id, null);
+            return await service.Create(schema.CreateEndPoint, uow, createaction.Id);
         }
 
         public async Task<UnitOfWork> Read(UnitOfWork uow, string entityId)

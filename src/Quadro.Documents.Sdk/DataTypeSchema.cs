@@ -33,6 +33,7 @@ namespace Quadro.Documents
         public string GetSchemaEndPoint { get; set; } = null!;
         public string GetSelectableValuesEndPoint { get; set; } = null!;
         public string GetItemsEndPoint { get; set; } = null!;
+        public string GetItemEndPoint { get; set; } = null!;
         public string CreateEndPoint { get; set; } = null!;
         public string ReadEndPoint { get; set; } = null!;
         public string UpdateEndPoint { get; set; } = null!;

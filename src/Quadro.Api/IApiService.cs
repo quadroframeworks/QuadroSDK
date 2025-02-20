@@ -1,43 +1,23 @@
-﻿using Quadro.Documents.Filtering;
-using Quadro.DataModel.Authorization;
-using Quadro.DataModel.Bom;
+﻿using Quadro.DataModel.Bom;
 using Quadro.DataModel.Drawing;
+using Quadro.DataModel.Entities.Projects;
+using Quadro.DataModel.Entities.Web;
 using Quadro.DataModel.Geometrics;
 using Quadro.DataModel.Model;
+using Quadro.DataModel.Model.Programs;
 using Quadro.DataModel.Model.Tools;
 using Quadro.DataModel.Production;
-using Quadro.ToolSet;
-using Quadro.DataModel.Entities.Web;
-using Quadro.DataModel.Entities.Projects;
-using Quadro.DataModel.Model.Programs;
 using Quadro.Documents;
+using Quadro.ToolSet;
 
 namespace Quadro.Api
 {
-	public interface IApiService
+    public interface IApiService
     {
-        //Documents
-        Task<IEnumerable<SchemaInfo>> GetSchemaInfos();
-        Task<DataTypeSchema> GetSchema(string endpoint);
-        Task<IEnumerable<DataDocument>> GetItems(DataTypeSchema schema, RoughFilterType roughFilterType, string? filterString);
-        Task<IEnumerable<DataDocument>> GetVariants(DataTypeSchema schema, DataDocument document);
-        Task<IEnumerable<SelectableValue>> GetSelectableValues(string endpoint, DataDocument document, string dtoid, string propertyname);
-		Task<FilterTree> GetFilterTree(string endpoint);
-		Task<DataDocument> Create(string endpoint);
-        Task<DataDocument> CreateAndAdd(string endpoint, DataDocument document, string dtoid);
-        Task<DataDocument> CreateCopy(string endpoint, DataDocument document);
-        Task<DataDocument> CreateVariant(string endpoint, DataDocument document);
-        Task<DataDocument> Read(string endpoint, string id);
-        Task<DataDocument> Update(string endpoint, DataDocument document);
-        Task<DataDocument> Delete(string endpoint, DataDocument document, string dtoid);
-		Task<DataDocument> DoCustom(string endpoint);
-		Task<DataDocument> DoCustom(string endpoint, DataDocument document);
-		Task<DataDocument> DoCustom(string endpoint, DataDocument document, string dtoid);
-		Task<DataDocument> DoCustom(string endpoint, CustomActionArgument customarg);
-        Task<DataDocument> Validate(string endpoint, DataDocument document);
-        Task<DataDocument> SetValue(string endpoint, DataDocument document, string dtoid, string propertyname, string? value);
-        Task<Drawing2DDto> GetModel2D(string endpoint, DataDocument document);
-        Task<Drawing2DDto> GetCrossSection(string endpoint, DataDocument document, string partId);
+
+        IAuthService Auth { get; }
+        IUnitOfWorkService UnitOfWork { get; }
+
 
         //Drawings
         Task<Drawing2DDto> GetFrontViewDrawing(string endpoint, MainAssemblyModelDto model);
@@ -46,8 +26,9 @@ namespace Quadro.Api
 		Task<string> GetSectionViewDrawingSvg(string endpoint, MainAssemblyModelDto model, int sectionId);
 		Task<HeaderedDescription> GetFrameDescription(string endpoint, MainAssemblyModelDto model);
         Task<string> ConvertDrawingToDxf(string endpoint, Drawing2DDto drawing);
-        
+
         //Models
+        Task<Drawing2DDto> GetModel2D(string endpoint, DataDocument document);
         Task<MainAssemblyModelDto> GetAssemblyModel(string endpoint, DataDocument document);
         Task<OrderLineBomModelDto> GetOrderLineBomModel(string bomId);
         Task<ToolModelDto> GetToolModel(string endpoint, DataDocument document);
@@ -69,22 +50,6 @@ namespace Quadro.Api
         Task<WorkbookDto> GetWorkbook(string endpoint, DataDocument document, string dtoid);
         Task<string> GetDxfDrawing(string endpoint, DataDocument document, string dtoid);
 
-		//Auth
-		Task<UserAccountInfo> CreateUserAccount(NewUserAccountInfo accountInfo);
-		Task<UserSignInResult> SignIn(string email, string password);
-		Task<UserSignOutResult> SignOut();
-        Task<UserRoleInfo> GetUserRoleInfo();
-
-		//Auth users
-		Task<UserAccountInfo> UpdateUserAccount(UserAccountInfo accountInfo);
-		Task<DeleteUserAccountResult> DeleteUserAccount(string email);
-		Task<ChangePasswordResult> ResetPassword(string oldpassword, string newpassword);
-
-		//Auth business
-		Task<NewBusinessAccountResult> CreateBusinessAccount(BusinessAccountInfo accountInfo);
-        Task<BusinessAccountInfo> ReadBusinessAccountInfo();
-        Task<BusinessAccountInfo> UpdateBusinessAccountInfo(BusinessAccountInfo accountInfo);
-        Task<DeleteBusinessAccountResult> DeleteBusinessAccount();
 
         //Production
         Task<IEnumerable<ProductionFrameDto>> GetProductionFrames(string endpoint, string manufacturingorderId);
