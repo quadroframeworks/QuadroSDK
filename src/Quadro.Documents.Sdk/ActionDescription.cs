@@ -39,9 +39,9 @@ namespace Quadro.Documents
         Delete,
         CreateAndAdd,
         Remove,
-        CreateCopy,
-        CreateVariant,
-        Custom,
+        Schema, //Schema top
+        Basic, //On dto without custom arg
+        Custom, //On dto with custom arg
     }
 
 

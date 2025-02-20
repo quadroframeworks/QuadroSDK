@@ -1,11 +1,4 @@
-﻿using Quadro.Utils.DataContext;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Quadro.Documents
+﻿namespace Quadro.Documents
 {
     public class CustomActionArgument
     {
@@ -17,7 +10,7 @@ namespace Quadro.Documents
             BodyFormat = bodyformat;
             Body = body;
         }
-        public IUnitOfWork? UnitOfWork { get; set; }
+        public UnitOfWork.UnitOfWork? UnitOfWork { get; set; }
         public CustomFormat HeaderFormat { get; set; }
         public CustomFormat BodyFormat { get; set; }
         public string? Header { get; set; }
