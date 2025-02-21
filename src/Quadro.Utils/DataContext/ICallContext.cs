@@ -1,9 +1,5 @@
-﻿using Quadro.Utils.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Quadro.Globalization;
+using Quadro.Utils.Logging;
 
 namespace Quadro.Utils.DataContext
 {
@@ -12,5 +8,6 @@ namespace Quadro.Utils.DataContext
         ILog AppLog { get; }
         ILog CallLog { get; }
         IDataContext Data { get; }
+        Language Language { get; }
     }
 }

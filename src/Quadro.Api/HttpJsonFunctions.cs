@@ -13,11 +13,11 @@ namespace Quadro.Api
 {
     public class HttpJsonFunctions
     {
-        public HttpJsonFunctions() 
+        public HttpJsonFunctions(IEntityTypeProvider entityTypeProvider) 
         {
             jsonoptions = new JsonSerializerOptions(JsonSerializerDefaults.Web);
             jsonoptions.NumberHandling = JsonNumberHandling.AllowNamedFloatingPointLiterals;
-            jsonoptions.Converters.Add(new UnitOfWorkConverter(new EntityTypeProvider()));
+            jsonoptions.Converters.Add(new UnitOfWorkConverter(entityTypeProvider));
 
         }
 

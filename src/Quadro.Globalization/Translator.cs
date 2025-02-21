@@ -93,5 +93,22 @@ namespace Quadro.Globalization
             return enumvalue.ToString();
 
         }
+
+        public string? TranslateEnum(object enumvalue, Type enumtype, Language language)
+        {
+
+            var enummember = enumtype.GetMember(enumvalue.ToString()!);
+            var attributes = enummember[0].GetCustomAttributes(typeof(EnumValueAttribute), false);
+            foreach (var attribute in attributes.OfType<EnumValueAttribute>())
+            {
+                if (attribute.Language != language)
+                    continue;
+
+                return attribute.Text;
+            }
+
+            return enumvalue.ToString();
+
+        }
     }
 }

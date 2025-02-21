@@ -1,4 +1,5 @@
-﻿using Quadro.Utils.Storage;
+﻿using Quadro.Utils.DataContext;
+using Quadro.Utils.Storage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Quadro.Documents.UnitOfWork
 {
-	public class UnitOfWork
+	public class UnitOfWork:IUnitOfWork
 	{
         public UnitOfWork() { }
         public UnitOfWork(string id)
