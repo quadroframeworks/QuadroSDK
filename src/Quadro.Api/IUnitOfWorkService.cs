@@ -21,7 +21,9 @@ namespace Quadro.Api
         //CRUD per entity
         Task<DataTypeSchema> GetSchema(string endpoint);
         Task<UnitOfWork> Create(string endpoint, UnitOfWork uow, string actionId);
+        Task<UnitOfWork> CreateOnProperty(string endpoint, UnitOfWork uow, string actionId, string dtoId);
         Task<UnitOfWork> Read(string endpoint, UnitOfWork uow, string actionId, string dtoId);
+        Task<UnitOfWork> ReadOnProperty(string endpoint, UnitOfWork uow, string actionId, string dtoId);
         Task<UnitOfWork> Update(string endpoint, UnitOfWorkUpdate update);
         Task<UnitOfWork> UpdateProperty(string endpoint, UnitOfWork uow, string dtoId, string propertyName, string? value);
         Task<UnitOfWork> Delete(string endpoint, UnitOfWork uow, string actionId, string dtoId);

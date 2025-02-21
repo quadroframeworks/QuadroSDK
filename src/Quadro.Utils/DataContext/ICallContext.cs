@@ -9,5 +9,6 @@ namespace Quadro.Utils.DataContext
         ILog CallLog { get; }
         IDataContext Data { get; }
         Language Language { get; }
+        Translator Translator { get; }
     }
 }

@@ -8,6 +8,7 @@ using Quadro.DataModel.Model.Programs;
 using Quadro.DataModel.Model.Tools;
 using Quadro.DataModel.Production;
 using Quadro.Documents;
+using Quadro.Documents.UnitOfWork;
 using Quadro.ToolSet;
 
 namespace Quadro.Api
@@ -29,7 +30,7 @@ namespace Quadro.Api
 
         //Models
         Task<Drawing2DDto> GetModel2D(string endpoint, DataDocument document);
-        Task<MainAssemblyModelDto> GetAssemblyModel(string endpoint, DataDocument document);
+        Task<MainAssemblyModelDto> GetAssemblyModel(string endpoint, UnitOfWork uow, string dtoId);
         Task<OrderLineBomModelDto> GetOrderLineBomModel(string bomId);
         Task<ToolModelDto> GetToolModel(string endpoint, DataDocument document);
         Task<ProfileProgramModelDto> GetProfileProgramModel(string endpoint, DataDocument document);

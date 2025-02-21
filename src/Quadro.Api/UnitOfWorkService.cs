@@ -70,7 +70,21 @@ namespace Quadro.Api
             return await jsonFunctions.ReadFromJsonAsync<UnitOfWork>(response);
         }
 
+        public async Task<UnitOfWork> CreateOnProperty(string endpoint, UnitOfWork uow, string actionId, string dtoId)
+        {
+            var client = clientProvider.GetClient();
+            HttpResponseMessage response = await client.PutAsJsonAsync<UnitOfWork>($"{endpoint}?actionId={actionId}&dtoId={dtoId}", uow, jsonFunctions.JsonOptions);
+            return await jsonFunctions.ReadFromJsonAsync<UnitOfWork>(response);
+        }
+
         public async Task<UnitOfWork> Read(string endpoint, UnitOfWork uow, string actionId, string dtoId)
+        {
+            var client = clientProvider.GetClient();
+            HttpResponseMessage response = await client.PutAsJsonAsync<UnitOfWork>($"{endpoint}?actionId={actionId}&dtoId={dtoId}", uow, jsonFunctions.JsonOptions);
+            return await jsonFunctions.ReadFromJsonAsync<UnitOfWork>(response);
+        }
+
+        public async Task<UnitOfWork> ReadOnProperty(string endpoint, UnitOfWork uow, string actionId, string dtoId)
         {
             var client = clientProvider.GetClient();
             HttpResponseMessage response = await client.PutAsJsonAsync<UnitOfWork>($"{endpoint}?actionId={actionId}&dtoId={dtoId}", uow, jsonFunctions.JsonOptions);

@@ -49,6 +49,18 @@ namespace Quadro.Globalization
             return result?.Translation;
         }
 
+        public string TranslateBoolean(bool b)
+        {
+            switch (currentLanguage)
+            {
+                case Language.en:
+                    return b ? "Yes" : "No";
+                case Language.nl:
+                    return b ? "Ja" : "Nee";
+            }
+            return b.ToString();
+        }
+
         public string? TranslateUnit(Unit unit)
         {
             if (unit == Unit.Unknown)
