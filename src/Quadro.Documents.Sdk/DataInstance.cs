@@ -1,4 +1,5 @@
 ﻿using Quadro.Documents.Fluent;
+using Quadro.Utils.Serialization;
 using System.Linq.Expressions;
 
 namespace Quadro.Documents
@@ -119,7 +120,7 @@ namespace Quadro.Documents
         {
             this.PropertyName = description.PropertyName;
             foreach (var action in description.Actions)
-                this.Actions.Add(new DataAction(action.Url, true));
+                this.Actions.Add(new DataAction(action.Id, action.Url, true));
         }
 
         public string? Value { get; set; }
@@ -192,7 +193,7 @@ namespace Quadro.Documents
             PropertyName = description.PropertyName;
 
             foreach (var action in description.Actions)
-                this.Actions.Add(new DataAction(action.Url, true));
+                this.Actions.Add(new DataAction(action.Id, action.Url, true));
         }
         
         public string? ItemId{ get; set; }
@@ -210,7 +211,7 @@ namespace Quadro.Documents
             PropertyName = description.PropertyName;
 
             foreach (var action in description.Actions)
-                this.Actions.Add(new DataAction(action.Url, true));
+                this.Actions.Add(new DataAction(action.Id, action.Url, true));
         }
 
         public List<string> ItemIds { get; set; } = new List<string>();
@@ -223,12 +224,14 @@ namespace Quadro.Documents
     public class DataAction
     {
         public DataAction() { }
-        public DataAction(string url, bool isVisible)
+        public DataAction(string id, string url, bool isVisible)
         {
+            Id = id;
             Url = url;
             IsVisible = isVisible;
         }
 
+        public string Id { get; set; } = null!;
         public string Url { get; set; }= null!;
         public bool IsVisible { get; set; }= false;
     }
