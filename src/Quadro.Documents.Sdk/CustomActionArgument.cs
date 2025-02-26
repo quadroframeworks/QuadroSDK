@@ -1,4 +1,10 @@
-﻿namespace Quadro.Documents
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Quadro.Documents
 {
     public class CustomActionArgument
     {
@@ -10,7 +16,7 @@
             BodyFormat = bodyformat;
             Body = body;
         }
-        public UnitOfWork.UnitOfWork? UnitOfWork { get; set; }
+        public DataDocument? Document { get; set; }
         public CustomFormat HeaderFormat { get; set; }
         public CustomFormat BodyFormat { get; set; }
         public string? Header { get; set; }

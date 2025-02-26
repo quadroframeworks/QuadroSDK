@@ -27,7 +27,6 @@ namespace Quadro.DataModel.Model
         public string? Tag { get; set; }
         public string? UserName { get; set; }
         public BorderAssemblyModelDto? Border { get; set; }
-        public List<FrameWorkAssemblyModelDto> SubFrameWorks { get; set; } = new List<FrameWorkAssemblyModelDto>();
         public static MainAssemblyModelDto Empty => new MainAssemblyModelDto();
         public List<SectionDto> Sections { get; set; } = new List<SectionDto>();
         public List<FrameCertificateDto> Certificates { get; set; } = new List<FrameCertificateDto>();
@@ -42,11 +41,6 @@ namespace Quadro.DataModel.Model
     }
 
     public class BorderAssemblyModelDto: AssemblyModelDto
-    {
-
-    }
-
-    public class FrameWorkAssemblyModelDto: AssemblyModelDto
     {
 
     }

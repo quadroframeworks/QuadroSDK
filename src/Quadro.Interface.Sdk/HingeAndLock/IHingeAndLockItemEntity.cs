@@ -2,12 +2,12 @@
 using Quadro.Interface.CustomProperties;
 using Quadro.Interface.Enums;
 using Quadro.Interface.Profiles;
-using Quadro.Utils.Storage;
 
 namespace Quadro.Interface.HingeAndLock
 {
-	public interface IHingeAndLockItemEntity: IStorable, ICustomizable
+	public interface IHingeAndLockItemEntity: ICustomizable
     {
+        string Id { get; }
         string Name { get; }
         string? CatalogItemId { get; set; }
         PartGroup Group { get; }

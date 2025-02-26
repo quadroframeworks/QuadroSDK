@@ -5,19 +5,16 @@ namespace Quadro.Interface.Catalog
 	public interface ICatalogItemDescription
     {
         string Id { get; }
-        string? CatalogItemGroupId { get; }
         string Name { get; }
         string Description { get; }
         CatalogItemType Type { get; }
         StockType StockType { get; }
         Unit Unit { get; }
-        bool ForceQuantityOne { get; }
         double UnitCost { get; }
         double WastePercentage { get; }
         string? Color { get; }
         string? ERPId { get; set; }
         IEnumerable<IWorkProcessTime> ProcessTimes { get; }
-        IEnumerable<ICatalogSubItem> SubItems { get; }
 
     }
 
@@ -27,14 +24,6 @@ namespace Quadro.Interface.Catalog
         string? WorkCenterId { get; set; }
         string? ERPId { get; set; }
     }
-
-    public interface ICatalogSubItem
-    {
-        string? CatalogItemId { get; set; }
-        bool EnableRange { get; set; }
-        double QuantityFrom { get; set; }
-		double QuantityTo { get; set; }
-	}
 
     public enum CatalogItemType
     {

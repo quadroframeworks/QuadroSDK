@@ -16,7 +16,6 @@ namespace Quadro.DataModel.Bom
 		public double Quantity { get; set; }
 		public Unit Unit { get; set; }
 		public double TotalCostPrice { get; set; }
-        public double TotalSalesPrice { get; set; }
         public TimeSpan TotalProductionTime { get; set; }
 
 

@@ -1,5 +1,4 @@
 ﻿using Quadro.Documents.Fluent;
-using Quadro.Utils.Serialization;
 using System.Linq.Expressions;
 
 namespace Quadro.Documents
@@ -120,7 +119,7 @@ namespace Quadro.Documents
         {
             this.PropertyName = description.PropertyName;
             foreach (var action in description.Actions)
-                this.Actions.Add(new DataAction(action.Id, action.Url, true));
+                this.Actions.Add(new DataAction(action.Url, true));
         }
 
         public string? Value { get; set; }
@@ -128,8 +127,7 @@ namespace Quadro.Documents
         public string PropertyName { get; set; } = null!;
         public bool IsValid { get; set; } = true;
         public bool IsVisible { get; set; } = true;
-		public bool IsReadOnly { get; set; } = false;
-		public string? ValidationMessage { get; set; }
+        public string? ValidationMessage { get; set; }
         public List<DataAction> Actions { get; set; } = new List<DataAction>();
 
         public T? GetValue<T>()
@@ -148,7 +146,7 @@ namespace Quadro.Documents
             else if (type == typeof(int))
                 result = Value == null ? null : Convert.ToInt32(Value);
             else if (type == typeof(double))
-                result = Value == null ? null : Convert.ToDouble(Value, Globalization.Parsing.ParsingCulture);
+                result = Value == null ? null : Convert.ToDouble(Value);
             else if (type == typeof(byte))
                 result = Value == null ? null : Convert.ToByte(Value);
             else if (type == typeof(TimeSpan))
@@ -160,7 +158,7 @@ namespace Quadro.Documents
             else if (type == typeof(Nullable<int>))
                 result = Value == null ? null : Convert.ToInt32(Value);
             else if (type == typeof(Nullable<double>))
-                result = Value == null ? null : Convert.ToDouble(Value, Globalization.Parsing.ParsingCulture);
+                result = Value == null ? null : Convert.ToDouble(Value);
             else if (type == typeof(Nullable<byte>))
                 result = Value == null ? null : Convert.ToByte(Value);
             else if (type == typeof(Nullable<TimeSpan>))
@@ -193,14 +191,13 @@ namespace Quadro.Documents
             PropertyName = description.PropertyName;
 
             foreach (var action in description.Actions)
-                this.Actions.Add(new DataAction(action.Id, action.Url, true));
+                this.Actions.Add(new DataAction(action.Url, true));
         }
         
         public string? ItemId{ get; set; }
         public string PropertyName { get; set; } = null!;
         public bool IsVisible { get; set; } = true;
-		public bool IsReadOnly { get; set; } = false;
-		public List<DataAction> Actions { get; set; } = new List<DataAction>();
+        public List<DataAction> Actions { get; set; } = new List<DataAction>();
     }
 
     public class DataListProperty
@@ -211,27 +208,24 @@ namespace Quadro.Documents
             PropertyName = description.PropertyName;
 
             foreach (var action in description.Actions)
-                this.Actions.Add(new DataAction(action.Id, action.Url, true));
+                this.Actions.Add(new DataAction(action.Url, true));
         }
 
         public List<string> ItemIds { get; set; } = new List<string>();
         public string PropertyName { get; set; } = null!;
         public bool IsVisible { get; set; } = true;
-		public bool IsReadOnly { get; set; } = false;
-		public List<DataAction> Actions { get; set; } = new List<DataAction>();
+        public List<DataAction> Actions { get; set; } = new List<DataAction>();
     }
 
     public class DataAction
     {
         public DataAction() { }
-        public DataAction(string id, string url, bool isVisible)
+        public DataAction(string url, bool isVisible)
         {
-            Id = id;
             Url = url;
             IsVisible = isVisible;
         }
 
-        public string Id { get; set; } = null!;
         public string Url { get; set; }= null!;
         public bool IsVisible { get; set; }= false;
     }

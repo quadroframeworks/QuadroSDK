@@ -14,7 +14,6 @@ namespace Quadro.Interface.Bom
 		public double Quantity { get; }
 		public Unit Unit { get; set; }
 		double TotalCostPrice { get; }
-        double TotalSalesPrice { get; }
 		TimeSpan TotalProductionTime { get; }
 		IEnumerable<IBomItemWorkCenterTime> WorkCenterTimes { get; }
         IEnumerable<IBomItem> Children { get; }

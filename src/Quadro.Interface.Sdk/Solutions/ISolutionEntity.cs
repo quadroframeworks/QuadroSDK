@@ -18,8 +18,7 @@ namespace Quadro.Interface.Solutions
         string Name { get; set; }
         string WireFrameId { get; set; }
         string MainAssemblyId { get; set; }
-		string? BorderAssemblyGroupId { get; set; }
-		string? BorderApplicationId { get; set; }
+        string? BorderApplicationId { get; set; }
         string? BorderAssemblyId { get; set; }
         string? BorderRabbetSelectionId { get; set; }
         string? RawMaterialId { get; set; }
@@ -30,8 +29,7 @@ namespace Quadro.Interface.Solutions
         IEnumerable<IPartConfiguration> PartConfigurations { get; }
         IEnumerable<IAdditionalPart> AdditionalParts { get; }
         IEnumerable<ISolutionFilling> Fillings { get; }
-		IEnumerable<ISubFrameWork> SubFrameWorks { get; }
-		IEnumerable<IOperationSetPlacement> OperationSets { get; }
+        IEnumerable<IOperationSetPlacement> OperationSets { get; }
         IEnumerable<ICertificateTest> CertificateTests { get; }
 
     }
@@ -99,27 +97,6 @@ namespace Quadro.Interface.Solutions
         int ChildPartIndex { get; set; }
     }
 
-    public interface ISubFrameWork
-    {
-		SubFrameWorkSide Side { get; }
-        double Width { get; }
-		double Height { get; }
-        double OffsetZ { get; }
-		double OffsetBottom { get; }
-		double OffsetTop { get; }
-		double OffsetLeft { get; }
-		double OffsetRight { get; }
-        string? FrameWorkAssemblyId { get; }
-	}
-
-    public enum SubFrameWorkSide
-    {
-        Bottom = 0,
-        Top = 1,
-        Left = 2,
-        Right = 3,
-    }
-
     public enum FrameSolutionStatus
     {
         [EnumValue("Design", Globalization.Language.en)]
@@ -159,21 +136,13 @@ namespace Quadro.Interface.Solutions
         [EnumValue("Normaal", Globalization.Language.nl)]
         Normal = 0,
 
-        [EnumValue("Laminated indoors", Globalization.Language.en)]
-        [EnumValue("Binnen gelaagd", Globalization.Language.nl)]
-        LaminatedIndoors = 1,
+        [EnumValue("Laminated", Globalization.Language.en)]
+        [EnumValue("Gelaagd", Globalization.Language.nl)]
+        Laminated = 1,
 
-		[EnumValue("Laminated outdoors", Globalization.Language.en)]
-		[EnumValue("Buiten gelaagd", Globalization.Language.nl)]
-		LaminatedOutdoors = 2,
-
-		[EnumValue("Laminated indoors/outdoors", Globalization.Language.en)]
-		[EnumValue("Binnen/buiten gelaagd", Globalization.Language.nl)]
-		LaminatedBoth = 3,
-
-		[EnumValue("Hardened", Globalization.Language.en)]
+        [EnumValue("Hardened", Globalization.Language.en)]
         [EnumValue("Gehard", Globalization.Language.nl)]
-        Hardened = 10,
+        Hardened = 2,
     }
 
 }
