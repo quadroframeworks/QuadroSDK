@@ -1,4 +1,5 @@
 ﻿using Quadro.Interface.Common;
+using Quadro.Utils.Logging;
 
 namespace Quadro.Interface.FrameCertificates
 {
@@ -8,6 +9,6 @@ namespace Quadro.Interface.FrameCertificates
         string Name { get; set; }
         string? ImageId { get; set; }
         public bool Approved { get; set; }
-        public IList<IFrameMessage> Messages { get; }
+        public IList<LogMessage> Messages { get; }
     }
 }

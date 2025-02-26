@@ -24,6 +24,7 @@ namespace Quadro.DataModel.Bom
         public IEnumerable<IBomItem> Items => items;
         public List<BomItemModelDto> items { get; set; } = new List<BomItemModelDto>();
         public double TotalCostPrice { get; set; }
-        public TimeSpan TotalProductionTime { get; set; }
+		public double TotalSalesPrice { get; set; }
+		public TimeSpan TotalProductionTime { get; set; }
     }
 }

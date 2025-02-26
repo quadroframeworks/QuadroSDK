@@ -1,13 +1,6 @@
-﻿using Quadro.Interface.Authorization;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Quadro.DataModel.Authorization
+﻿namespace Quadro.DataModel.Authorization
 {
-    public class BusinessAccountInfo : ICompany
+	public class BusinessAccountInfo
     {
         public string CompanyName { get; set; } = string.Empty;
         public string Address { get; set; } = string.Empty;
@@ -29,15 +22,4 @@ namespace Quadro.DataModel.Authorization
 
     }
 
-    public class NewBusinessAccountInfo: BusinessAccountInfo
-    {
-        public NewBusinessAccountInfo()
-        {
-
-        }
-
-        public string UserEmail { get; set; } = string.Empty;
-        public string UserName { get; set; } = string.Empty;
-        public string Password { get; set; } = string.Empty;
-    }
 }

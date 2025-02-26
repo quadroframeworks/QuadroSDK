@@ -8,6 +8,7 @@ namespace Quadro.Documents
         public ActionDescription() { }
 
         public List<NamingTranslation> Headers { get; set; } = new List<NamingTranslation>();
+        public string Id { get; set; } = Guid.NewGuid().ToString();
         public string Url { get; set; } = null!;
         public bool IsColumnVisible { get; set; }
 
@@ -32,14 +33,15 @@ namespace Quadro.Documents
 
     public enum ActionType
     {
-        Create,
-        Read,
-        Update,
-        Delete,
-        CreateAndAdd,
-        CreateCopy,
-        CreateVariant,
-        Custom,
+        Create=0,
+        Read=1,
+        Update=2,
+        Delete=3,
+        CreateAndAdd=4,
+        Remove=5,
+        Schema=6, //Schema top
+        Basic=7, //On dto without custom arg
+        Custom=8, //On dto with custom arg
     }
 
 

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Quadro.DataModel.Entities.Orders
+namespace Quadro.DataModel.Entities.Projects
 {
 	public class OrderLineBomModelDto : StorableGuid
 	{
