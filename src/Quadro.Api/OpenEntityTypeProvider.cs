@@ -1,4 +1,6 @@
-﻿using Quadro.DataModel.Entities.Customers;
+﻿using Quadro.DataModel.Entities.Catalog;
+using Quadro.DataModel.Entities.Customers;
+using Quadro.DataModel.Entities.Projects;
 using Quadro.DataModel.Geometrics;
 using System;
 using System.Collections.Generic;
@@ -15,6 +17,9 @@ namespace Quadro.Api
         public OpenEntityTypeProvider()
         {
             AddType<CustomerDto>();
+            AddType<SupplierDto>();
+            AddType<CatalogItemDto>();
+            AddType<ProjectDto>();
         }
 
         private void AddType<T>()

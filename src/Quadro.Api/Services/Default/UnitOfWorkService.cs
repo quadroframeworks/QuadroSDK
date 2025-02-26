@@ -27,7 +27,7 @@ namespace Quadro.Api.Services.Default
         public async Task<IEnumerable<SchemaInfo>> GetSchemaInfos()
         {
             var client = clientProvider.GetClient();
-            HttpResponseMessage response = await client.GetAsync($"/Root/GetSchemaInfos");
+            HttpResponseMessage response = await client.GetAsync($"Root/GetSchemaInfos");
             return await jsonFunctions.ReadFromJsonAsync<List<SchemaInfo>>(response);
         }
 

@@ -18,7 +18,7 @@ namespace Quadro.Api.Services.Default
         public async Task<UserSignInResult> SignIn(string email, string password)
         {
             clientProvider.BearerToken = null;
-            var url = $"/Authorization/SignIn?email={email}&password={password}";
+            var url = $"Authorization/SignIn?email={email}&password={password}";
             var client = clientProvider.GetClient();
             var response = await client.GetAsync(url);
             var result = await jsonFunctions.ReadFromJsonAsync<UserSignInResult>(response);
@@ -28,7 +28,7 @@ namespace Quadro.Api.Services.Default
 
         public async Task<UserSignOutResult> SignOut()
         {
-            var url = $"/Authorization/SignOut";
+            var url = $"Authorization/SignOut";
             var client = clientProvider.GetClient();
             var response = await client.GetAsync(url);
             var result = await jsonFunctions.ReadFromJsonAsync<UserSignOutResult>(response);
@@ -38,7 +38,7 @@ namespace Quadro.Api.Services.Default
 
         public async Task<UserRoleInfo> GetUserRoleInfo()
         {
-            var url = $"/Authorization/GetUserRoleInfo";
+            var url = $"Authorization/GetUserRoleInfo";
             var client = clientProvider.GetClient();
             var response = await client.GetAsync(url);
             var result = await jsonFunctions.ReadFromJsonAsync<UserRoleInfo>(response);
@@ -47,7 +47,7 @@ namespace Quadro.Api.Services.Default
 
         public async Task<NewBusinessAccountResult> CreateBusinessAccount(BusinessAccountInfo accountInfo)
         {
-            var url = $"/Authorization/CreateBusinessAccount";
+            var url = $"Authorization/CreateBusinessAccount";
             var client = clientProvider.GetClient();
             var response = await client.PutAsJsonAsync(url, accountInfo);
             return await jsonFunctions.ReadFromJsonAsync<NewBusinessAccountResult>(response);
@@ -56,7 +56,7 @@ namespace Quadro.Api.Services.Default
 
         public async Task<BusinessAccountInfo> ReadBusinessAccountInfo()
         {
-            string url = $"/Authorization/ReadBusinessAccountInfo";
+            string url = $"Authorization/ReadBusinessAccountInfo";
             var client = clientProvider.GetClient();
             HttpResponseMessage response = await client.GetAsync(url);
             return await jsonFunctions.ReadFromJsonAsync<BusinessAccountInfo>(response);
@@ -64,7 +64,7 @@ namespace Quadro.Api.Services.Default
 
         public async Task<BusinessAccountInfo> UpdateBusinessAccountInfo(BusinessAccountInfo accountInfo)
         {
-            var url = $"/Authorization/UpdateBusinessAccountInfo";
+            var url = $"Authorization/UpdateBusinessAccountInfo";
             var client = clientProvider.GetClient();
             var response = await client.PutAsJsonAsync(url, accountInfo);
             return await jsonFunctions.ReadFromJsonAsync<BusinessAccountInfo>(response);
@@ -72,7 +72,7 @@ namespace Quadro.Api.Services.Default
 
         public async Task<DeleteBusinessAccountResult> DeleteBusinessAccount()
         {
-            string url = $"/Authorization/DeleteBusinessAccount";
+            string url = $"Authorization/DeleteBusinessAccount";
             var client = clientProvider.GetClient();
             HttpResponseMessage response = await client.GetAsync(url);
             return await jsonFunctions.ReadFromJsonAsync<DeleteBusinessAccountResult>(response);
@@ -80,7 +80,7 @@ namespace Quadro.Api.Services.Default
 
         public async Task<UserAccountInfo> CreateUserAccount(NewUserAccountInfo accountInfo)
         {
-            var url = $"/Authorization/CreateUserAccount";
+            var url = $"Authorization/CreateUserAccount";
             var client = clientProvider.GetClient();
             var response = await client.PutAsJsonAsync(url, accountInfo);
             return await jsonFunctions.ReadFromJsonAsync<UserAccountInfo>(response);
@@ -89,7 +89,7 @@ namespace Quadro.Api.Services.Default
 
         public async Task<IEnumerable<UserAccountInfo>> ReadUserAccounts()
         {
-            string url = $"/Authorization/ReadUserAccounts";
+            string url = $"Authorization/ReadUserAccounts";
             var client = clientProvider.GetClient();
             HttpResponseMessage response = await client.GetAsync(url);
             return await jsonFunctions.ReadFromJsonAsync<IEnumerable<UserAccountInfo>>(response);
@@ -97,7 +97,7 @@ namespace Quadro.Api.Services.Default
 
         public async Task<UserAccountInfo> UpdateUserAccount(UserAccountInfo accountInfo)
         {
-            var url = $"/Authorization/UpdateUserAccount";
+            var url = $"Authorization/UpdateUserAccount";
             var client = clientProvider.GetClient();
             var response = await client.PutAsJsonAsync(url, accountInfo);
             return await jsonFunctions.ReadFromJsonAsync<UserAccountInfo>(response);
@@ -106,7 +106,7 @@ namespace Quadro.Api.Services.Default
 
         public async Task<DeleteUserAccountResult> DeleteUserAccount(string email)
         {
-            string url = $"/Authorization/DeleteUserAccount?email={email}";
+            string url = $"Authorization/DeleteUserAccount?email={email}";
             var client = clientProvider.GetClient();
             HttpResponseMessage response = await client.GetAsync(url);
             return await jsonFunctions.ReadFromJsonAsync<DeleteUserAccountResult>(response);
@@ -115,7 +115,7 @@ namespace Quadro.Api.Services.Default
 
         public async Task<ChangePasswordResult> ResetPassword(string oldpassword, string newpassword)
         {
-            var url = $"/Authorization/ChangePassword?oldpassword={oldpassword}&newpassword={newpassword}";
+            var url = $"Authorization/ChangePassword?oldpassword={oldpassword}&newpassword={newpassword}";
             var client = clientProvider.GetClient();
             var response = await client.GetAsync(url);
             var result = await jsonFunctions.ReadFromJsonAsync<ChangePasswordResult>(response);

@@ -1,11 +1,6 @@
 ﻿using Quadro.Globalization.Attributes;
 using Quadro.Interface.Customers;
 using Quadro.Utils.Storage;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Quadro.DataModel.Entities.Customers
 {
