@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Net;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,15 @@ namespace Quadro.Documents.Fluent
 {
     public class ExpressionInfo
     {
+
+        public static string GetEndPointName<TController>(Expression expression)
+        {
+            var endpoint = GetNameFromMemberExpression(expression);
+            var controller = typeof(TController).Name.Replace("Controller", "");
+            var result = $"/{controller}/{endpoint}";
+            return result;
+        }
+
         public static string GetNameFromMemberExpression(Expression expression)
         {
             var type = expression.GetType().ToString();

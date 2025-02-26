@@ -26,6 +26,7 @@ namespace Quadro.Base.Catalog
         g = 40,
         kg = 41,
         L = 42,
+        Wperm2K = 60,
         s = 1000,
         min = 1001,
         hr = 1002,

@@ -49,6 +49,18 @@ namespace Quadro.Globalization
             return result?.Translation;
         }
 
+        public string TranslateBoolean(bool b)
+        {
+            switch (currentLanguage)
+            {
+                case Language.en:
+                    return b ? "Yes" : "No";
+                case Language.nl:
+                    return b ? "Ja" : "Nee";
+            }
+            return b.ToString();
+        }
+
         public string? TranslateUnit(Unit unit)
         {
             if (unit == Unit.Unknown)
@@ -59,8 +71,10 @@ namespace Quadro.Globalization
                 return "€";
             else if (unit == Unit.Percentage)
                 return "%";
+            else if (unit == Unit.Wperm2K)
+                return "W/m²K";
 
-            var cached = unitTranslations.TryGetValue(unit, out string? unitTranslation);
+			var cached = unitTranslations.TryGetValue(unit, out string? unitTranslation);
             if (!cached)
             {
                 unitTranslation = unit.ToString();
@@ -77,6 +91,23 @@ namespace Quadro.Globalization
 
 
             var enumtype = typeof(T);
+
+            var enummember = enumtype.GetMember(enumvalue.ToString()!);
+            var attributes = enummember[0].GetCustomAttributes(typeof(EnumValueAttribute), false);
+            foreach (var attribute in attributes.OfType<EnumValueAttribute>())
+            {
+                if (attribute.Language != language)
+                    continue;
+
+                return attribute.Text;
+            }
+
+            return enumvalue.ToString();
+
+        }
+
+        public string? TranslateEnum(object enumvalue, Type enumtype, Language language)
+        {
 
             var enummember = enumtype.GetMember(enumvalue.ToString()!);
             var attributes = enummember[0].GetCustomAttributes(typeof(EnumValueAttribute), false);

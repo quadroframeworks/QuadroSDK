@@ -31,6 +31,7 @@ namespace Quadro.Interface.Assemblies
         IEnumerable<IPartConfiguration> PartConfigurations { get; }
         IEnumerable<IOperationSetPlacement> OperationSets { get; }
         IEnumerable<IAssemblyFilling> Fillings { get; }
+        IEnumerable<IRabbetSelectionFilter> RabbetSelectionFilters { get; }
     }
     public interface IMainAssemblyDescription : IAssemblyDescription
     {
@@ -57,6 +58,10 @@ namespace Quadro.Interface.Assemblies
         string? ExpressionEnable { get; }
     }
 
+    public interface ISubFrameWorkAssemblyDescription : IAssemblyDescription
+	{
+		string? ExpressionEnable { get; }
+	}
 
     public interface IAssemblyFilling
     {
@@ -64,17 +69,21 @@ namespace Quadro.Interface.Assemblies
         string SubFramePlacementId { get; }
         string? Name { get; }
         AssemblyFillingType Type { get; }
-        string? AssemblyApplicationId { get; }
-        string? GlassApplicationId { get; }
-        string? FillingAssemblyId { get; set; }
-        FillingTurnConfiguration TurnConfiguration { get; set; }
+		public string? AssemblyGroupId { get; set; }
+		public string? AssemblyApplicationId { get; set; }
+		public string? FillingAssemblyId { get; set; }
+		public string? RabbetSelectionId { get; set; }
+		FillingTurnConfiguration TurnConfiguration { get; set; }
         TurnSide TurnSide { get; set; }
         ICompartmentDescription Compartment { get; }
 
     }
 
 
-    public enum AssemblyType
+
+
+
+	public enum AssemblyType
     {
         [EnumValue("Main frame", Globalization.Language.en)]
         [EnumValue("Basisframe", Globalization.Language.nl)]
@@ -85,7 +94,10 @@ namespace Quadro.Interface.Assemblies
         [EnumValue("Filling", Globalization.Language.en)]
         [EnumValue("Vakvulling", Globalization.Language.nl)]
         Filling,
-    }
+		[EnumValue("Framework", Globalization.Language.en)]
+		[EnumValue("Rekwerk", Globalization.Language.nl)]
+		FrameWork,
+	}
 
     public enum AssemblyContentType
     {
@@ -107,7 +119,10 @@ namespace Quadro.Interface.Assemblies
         [EnumValue("Plate", Globalization.Language.en)]
         [EnumValue("Plaat", Globalization.Language.nl)]
         Plate,
-    }
+		[EnumValue("Framework", Globalization.Language.en)]
+		[EnumValue("Rekwerk", Globalization.Language.nl)]
+		Framework,
+	}
 
     public enum AssemblyFillingType
     {
@@ -122,7 +137,7 @@ namespace Quadro.Interface.Assemblies
         Plate = 2,
         [EnumValue("Window", Globalization.Language.en)]
         [EnumValue("Raamvak", Globalization.Language.nl)]
-        Window = 10,
+		Window = 10,
         [EnumValue("Door", Globalization.Language.en)]
         [EnumValue("Deurvak", Globalization.Language.nl)]
         Door = 11,
@@ -215,6 +230,13 @@ namespace Quadro.Interface.Assemblies
         double X { get; set; }
         double Y { get; set; }
     }
+
+    public interface IRabbetSelectionFilter
+    {
+		public string? RabbetSelectionId { get; set; }
+		public string? RabbetSelectionName { get; set; }
+		public bool Allowed { get; set; }
+	}
 
     public enum ReferencePointType
     {

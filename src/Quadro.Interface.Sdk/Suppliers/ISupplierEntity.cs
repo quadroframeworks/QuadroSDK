@@ -1,5 +1,5 @@
 ﻿using Quadro.Interface.Catalog;
-using Quadro.Interface.Orders;
+using Quadro.Interface.Projects;
 
 namespace Quadro.Interface.Suppliers
 {
