@@ -1,20 +1,15 @@
 ﻿using Quadro.DataModel.Authorization;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http.Json;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Quadro.Api
+namespace Quadro.Api.Services.Default
 {
-    public class AuthService:IAuthService
+    public class AuthService : IAuthService
     {
 
         private IHttpClientProvider clientProvider;
         private HttpJsonFunctions jsonFunctions;
-        public AuthService(IHttpClientProvider clientProvider, HttpJsonFunctions jsonFunctions) 
-        { 
+        public AuthService(IHttpClientProvider clientProvider, HttpJsonFunctions jsonFunctions)
+        {
             this.clientProvider = clientProvider;
             this.jsonFunctions = jsonFunctions;
 
@@ -54,7 +49,7 @@ namespace Quadro.Api
         {
             var url = $"/Authorization/CreateBusinessAccount";
             var client = clientProvider.GetClient();
-            var response = await client.PutAsJsonAsync<BusinessAccountInfo>(url, accountInfo);
+            var response = await client.PutAsJsonAsync(url, accountInfo);
             return await jsonFunctions.ReadFromJsonAsync<NewBusinessAccountResult>(response);
         }
 
@@ -71,7 +66,7 @@ namespace Quadro.Api
         {
             var url = $"/Authorization/UpdateBusinessAccountInfo";
             var client = clientProvider.GetClient();
-            var response = await client.PutAsJsonAsync<BusinessAccountInfo>(url, accountInfo);
+            var response = await client.PutAsJsonAsync(url, accountInfo);
             return await jsonFunctions.ReadFromJsonAsync<BusinessAccountInfo>(response);
         }
 
@@ -87,7 +82,7 @@ namespace Quadro.Api
         {
             var url = $"/Authorization/CreateUserAccount";
             var client = clientProvider.GetClient();
-            var response = await client.PutAsJsonAsync<NewUserAccountInfo>(url, accountInfo);
+            var response = await client.PutAsJsonAsync(url, accountInfo);
             return await jsonFunctions.ReadFromJsonAsync<UserAccountInfo>(response);
         }
 
@@ -104,7 +99,7 @@ namespace Quadro.Api
         {
             var url = $"/Authorization/UpdateUserAccount";
             var client = clientProvider.GetClient();
-            var response = await client.PutAsJsonAsync<UserAccountInfo>(url, accountInfo);
+            var response = await client.PutAsJsonAsync(url, accountInfo);
             return await jsonFunctions.ReadFromJsonAsync<UserAccountInfo>(response);
         }
 

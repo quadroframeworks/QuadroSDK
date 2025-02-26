@@ -1,14 +1,9 @@
-﻿using Quadro.Documents.Sdk;
-using Quadro.Documents;
-using Quadro.Documents.UnitOfWork;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Quadro.Documents;
 using Quadro.Documents.Filtering;
+using Quadro.Documents.Sdk;
+using Quadro.Documents.UnitOfWork;
 
-namespace Quadro.Api
+namespace Quadro.Api.Services
 {
     public interface IUnitOfWorkService
     {
