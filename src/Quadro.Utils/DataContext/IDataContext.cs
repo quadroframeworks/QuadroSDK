@@ -16,8 +16,8 @@ namespace Quadro.Utils.DataContext
         Task<IEnumerable<IStorable>> GetAllAsync(Type type);
         T GetAndThrowIfNotFound<T>(string id) where T : class, IStorable;
         Task<T> GetAndThrowIfNotFoundAsync<T>(string id) where T : class, IStorable;
-        IEnumerable<T> Query<T>(Expression<Func<T, bool>> filter) where T : class, IStorable;
-        Task<IEnumerable<T>> QueryAsync<T>(Expression<Func<T, bool>> filter) where T : class, IStorable;
+        IEnumerable<T> Query<T>(Func<T, bool> filter) where T : class, IStorable;
+        Task<IEnumerable<T>> QueryAsync<T>(Func<T, bool> filter) where T : class, IStorable;
         void Update<T>(T item) where T : class, IStorable;
         Task UpdateAsync<T>(T item) where T : class, IStorable;
         Task CommitAsync();

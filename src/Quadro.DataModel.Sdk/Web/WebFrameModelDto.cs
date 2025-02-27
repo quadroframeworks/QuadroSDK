@@ -1,4 +1,5 @@
 ﻿using Quadro.DataModel.Model;
+using Quadro.Utils.DataContext;
 
 namespace Quadro.DataModel.Entities.Web
 {
@@ -8,5 +9,6 @@ namespace Quadro.DataModel.Entities.Web
 		public List<FrameMessageDto> Messages { get; set; } = new List<FrameMessageDto>();
 		public double PriceExVat { get; set; }
 		public string Svg { get; set; } = null!;
+        public UnitOfWork.UnitOfWork UnitOfWork { get; set; } = null!;
 	}
 }
