@@ -42,7 +42,7 @@ namespace Quadro.Api.Services.Default
 
         public async Task<WebFrameModelDto> GetWebFrontViewSvg(UnitOfWork uow, string dtoId)
         {
-            var url = $"{baseUriWeb}/GetWebFrontViewSvg";
+            var url = $"{baseUriWeb}/GetWebFrontViewSvg?dtoId={dtoId}";
             var client = clientProvider.GetClient();
             var response = await client.PutAsJsonAsync(url, uow, jsonFunctions.JsonOptions);
             return await jsonFunctions.ReadFromJsonAsync<WebFrameModelDto>(response);

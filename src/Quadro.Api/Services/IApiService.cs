@@ -21,6 +21,7 @@ namespace Quadro.Api.Services
         IModellingService Modelling { get; }
         IDrawingService Drawing { get; }
         IProductionService Production { get; }
+        IWebShopApiService WebShop { get; }
 
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Quadro.DataModel.Entities.Catalog;
 using Quadro.DataModel.Entities.Customers;
 using Quadro.DataModel.Entities.Projects;
+using Quadro.DataModel.Entities.Web;
 using Quadro.DataModel.Geometrics;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,8 @@ namespace Quadro.Api
             AddType<SupplierDto>();
             AddType<CatalogItemDto>();
             AddType<ProjectDto>();
+            AddType<WebOrderDto>();
+            AddType<WebFrameDto>();
         }
 
         private void AddType<T>()
