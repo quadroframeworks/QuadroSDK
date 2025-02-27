@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Quadro.Documents.Sdk\Quadro.Documents.Sdk.csproj" />
     <ProjectReference Include="..\Quadro.Interface.Sdk\Quadro.Interface.Sdk.csproj" />
   </ItemGroup>
 
