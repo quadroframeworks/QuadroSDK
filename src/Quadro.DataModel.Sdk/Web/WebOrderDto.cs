@@ -88,14 +88,31 @@ namespace Quadro.DataModel.Entities.Web
 
     }
 
-	public enum WebOrderState
-	{
-		Design = 0,
-		ShoppingCart = 1,
-		Ordered = 10,
-		Production = 20,
-		Shipped = 30,
-		Delivered = 40,
-	}
+    public enum WebOrderState
+    {
+        [EnumValue("Design", Globalization.Language.en)]
+        [EnumValue("Ontwerp", Globalization.Language.nl)]
+        Design = 0,
+
+        [EnumValue("Shopping Cart", Globalization.Language.en)]
+        [EnumValue("Winkelwagen", Globalization.Language.nl)]
+        ShoppingCart = 1,
+
+        [EnumValue("Ordered", Globalization.Language.en)]
+        [EnumValue("Besteld", Globalization.Language.nl)]
+        Ordered = 10,
+
+        [EnumValue("Production", Globalization.Language.en)]
+        [EnumValue("Productie", Globalization.Language.nl)]
+        Production = 20,
+
+        [EnumValue("Shipped", Globalization.Language.en)]
+        [EnumValue("Verzonden", Globalization.Language.nl)]
+        Shipped = 30,
+
+        [EnumValue("Delivered", Globalization.Language.en)]
+        [EnumValue("Geleverd", Globalization.Language.nl)]
+        Delivered = 40,
+    }
 
 }
