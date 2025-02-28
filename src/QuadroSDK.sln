@@ -19,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quadro.Api", "Quadro.Api\Qu
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{98CC0C7B-5077-4D4F-BA4C-89FB884CFB20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quadro.UnitOfWorkExample.App", "Quadro.UnitOfWorkExample.App\Quadro.UnitOfWorkExample.App.csproj", "{1DE8071B-9C96-4BF0-B998-18CAFA666705}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quadro.UnitOfWorkExample.App", "Quadro.UnitOfWorkExample.App\Quadro.UnitOfWorkExample.App.csproj", "{1DE8071B-9C96-4BF0-B998-18CAFA666705}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quadro.ShopFloor.Sdk", "Quadro.ShopFloor.Sdk\Quadro.ShopFloor.Sdk.csproj", "{F24966CA-6984-465A-857E-0A33D2885B1B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +61,10 @@ Global
 		{1DE8071B-9C96-4BF0-B998-18CAFA666705}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DE8071B-9C96-4BF0-B998-18CAFA666705}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DE8071B-9C96-4BF0-B998-18CAFA666705}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F24966CA-6984-465A-857E-0A33D2885B1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F24966CA-6984-465A-857E-0A33D2885B1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F24966CA-6984-465A-857E-0A33D2885B1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F24966CA-6984-465A-857E-0A33D2885B1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

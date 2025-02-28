@@ -1,20 +1,13 @@
-﻿using Newtonsoft.Json.Linq;
-using Quadro.Api.Services;
+﻿using Quadro.Api.Services;
 using Quadro.Documents;
 using Quadro.Documents.Fluent;
 using Quadro.Documents.UnitOfWork;
-using Quadro.Interface.Customers;
 using Quadro.Utils.Storage;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Quadro.Api
 {
-    internal class UnitOfWorkHelper
+    public class UnitOfWorkHelper
     {
         private readonly IUnitOfWorkService service;
         private readonly DataTypeSchema schema;
@@ -68,6 +61,19 @@ namespace Quadro.Api
             return await service.Read(schema.DeleteEndPoint, uow, null, entityId);
         }
 
+        public async Task<IEnumerable<T>> GetAll<T>(IProgress<double> progress) where T:class, IStorable
+        {
+            var result = new List<T>();
+            var readaction = schema.Actions.Single(a => a.ActionType == ActionType.Read);
+            var entities = await service.GetItems(schema.GetItemsEndPoint, null);
+            foreach (var entity in entities.Entities)
+            {
+                var uow = await service.StartNew(schema.StartNewEndpoint);
+                uow = await service.Read(schema.ReadEndPoint, uow, readaction.Id, entity.Id);
+                result.Add((T)uow.Containers.Single().Model);
+            }
 
+            return result;
+        }
     }
 }
