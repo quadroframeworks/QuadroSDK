@@ -6,7 +6,7 @@ namespace Quadro.DataModel.Entities.Customers
 {
     public class CustomerDto : StorableGuid, ICustomerEntity
     {
-        public string ERPId { get; set; } = null!;
+        public string? ERPId { get; set; }
 
         [Header("Name", Globalization.Language.en)]
         [Header("Naam", Globalization.Language.nl)]

@@ -34,10 +34,10 @@ namespace Quadro.DataModel.Model
     public class FrameOperationSetModelDto
     {
         public string Name { get; set; } = null!;
-        public List<FrameOperationEntityDto> Entities { get; set; } = new List<FrameOperationEntityDto>();
+        public List<FrameOpEntityDto> Entities { get; set; } = new List<FrameOpEntityDto>();
         public List<FrameOperationModelDto> Operations { get; set; } = new List<FrameOperationModelDto>();
     }
-    public class FrameOperationEntityDto
+    public class FrameOpEntityDto
     {
         public int Index { get; set; }
         public Point3DDto? Point { get; set; }

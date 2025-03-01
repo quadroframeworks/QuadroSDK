@@ -9,7 +9,8 @@ namespace Quadro.Api
         private readonly ILog log;
 
         public HttpService(ILog log, 
-                            IAuthService authService, 
+                            IAuthService authService,
+                            IRawApiService rawApiService,
                             IUnitOfWorkService uowService, 
                             IModellingService modellingService, 
                             IDrawingService drawingService,
@@ -18,6 +19,7 @@ namespace Quadro.Api
         {
             this.log = log;
             this.Auth = authService;
+            this.Raw = rawApiService;
             this.UnitOfWork = uowService;
             this.Modelling = modellingService;
             this.Drawing = drawingService;
@@ -26,6 +28,7 @@ namespace Quadro.Api
         }
 
         public IAuthService Auth { get; }
+        public IRawApiService Raw { get; }
         public IUnitOfWorkService UnitOfWork { get; }
         public IModellingService Modelling { get; }
         public IDrawingService Drawing { get; }

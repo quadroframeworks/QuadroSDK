@@ -22,7 +22,7 @@ namespace Quadro.DataModel.Model
         public List<FramePartModelDto> FrameParts { get; set; } = new List<FramePartModelDto>();
         public List<FixPartModelDto> FixParts { get; set; } = new List<FixPartModelDto>();
         public List<FrameOperationModelDto> Operations { get; set; }= new List<FrameOperationModelDto>();
-        public List<CompartmentDto> Compartments { get; set; } = new List<CompartmentDto>();
+        public List<CompartmentModelDto> Compartments { get; set; } = new List<CompartmentModelDto>();
 
     }
 }

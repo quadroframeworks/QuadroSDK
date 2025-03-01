@@ -17,11 +17,11 @@ namespace Quadro.Api.Services
     {
 
         IAuthService Auth { get; }
+        IRawApiService Raw { get; }
         IUnitOfWorkService UnitOfWork { get; }
         IModellingService Modelling { get; }
         IDrawingService Drawing { get; }
         IProductionService Production { get; }
         IWebShopApiService WebShop { get; }
-
     }
 }

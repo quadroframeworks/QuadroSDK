@@ -8,7 +8,7 @@ namespace Quadro.DataModel.Entities.Projects
 {
     public class SupplierDto : StorableGuid, ISupplierEntity
 	{
-		public string ERPId { get; set; } = null!;
+		public string? ERPId { get; set; } = null!;
 
 		[Header("Name", Globalization.Language.en)]
 		[Header("Naam", Globalization.Language.nl)]

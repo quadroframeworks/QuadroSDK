@@ -15,13 +15,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quadro.DataModel.Sdk", "Qua
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quadro.Globalization", "Quadro.Globalization\Quadro.Globalization.csproj", "{ADA598A2-2B75-49B4-8F80-DA6633FA3DBB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quadro.Api", "Quadro.Api\Quadro.Api.csproj", "{5A8FB6F4-B521-4FDE-9E3A-805A29362557}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{98CC0C7B-5077-4D4F-BA4C-89FB884CFB20}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quadro.UnitOfWorkExample.App", "Quadro.UnitOfWorkExample.App\Quadro.UnitOfWorkExample.App.csproj", "{1DE8071B-9C96-4BF0-B998-18CAFA666705}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quadro.ShopFloor.Sdk", "Quadro.ShopFloor.Sdk\Quadro.ShopFloor.Sdk.csproj", "{F24966CA-6984-465A-857E-0A33D2885B1B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quadro.ShopFloor.Sdk", "Quadro.ShopFloor.Sdk\Quadro.ShopFloor.Sdk.csproj", "{F24966CA-6984-465A-857E-0A33D2885B1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quadro.RawApiExample.App", "Quadro.RawApiExample.App\Quadro.RawApiExample.App.csproj", "{8894F5FB-24A2-4A0E-AD94-CC9681FB80E4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quadro.Api", "Quadro.Api\Quadro.Api.csproj", "{1B658589-99BB-45C2-B524-6CBDAE7753D4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,10 +55,6 @@ Global
 		{ADA598A2-2B75-49B4-8F80-DA6633FA3DBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADA598A2-2B75-49B4-8F80-DA6633FA3DBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADA598A2-2B75-49B4-8F80-DA6633FA3DBB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5A8FB6F4-B521-4FDE-9E3A-805A29362557}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5A8FB6F4-B521-4FDE-9E3A-805A29362557}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5A8FB6F4-B521-4FDE-9E3A-805A29362557}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5A8FB6F4-B521-4FDE-9E3A-805A29362557}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1DE8071B-9C96-4BF0-B998-18CAFA666705}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1DE8071B-9C96-4BF0-B998-18CAFA666705}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DE8071B-9C96-4BF0-B998-18CAFA666705}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -65,12 +63,21 @@ Global
 		{F24966CA-6984-465A-857E-0A33D2885B1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F24966CA-6984-465A-857E-0A33D2885B1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F24966CA-6984-465A-857E-0A33D2885B1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8894F5FB-24A2-4A0E-AD94-CC9681FB80E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8894F5FB-24A2-4A0E-AD94-CC9681FB80E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8894F5FB-24A2-4A0E-AD94-CC9681FB80E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8894F5FB-24A2-4A0E-AD94-CC9681FB80E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B658589-99BB-45C2-B524-6CBDAE7753D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B658589-99BB-45C2-B524-6CBDAE7753D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B658589-99BB-45C2-B524-6CBDAE7753D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B658589-99BB-45C2-B524-6CBDAE7753D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{1DE8071B-9C96-4BF0-B998-18CAFA666705} = {98CC0C7B-5077-4D4F-BA4C-89FB884CFB20}
+		{8894F5FB-24A2-4A0E-AD94-CC9681FB80E4} = {98CC0C7B-5077-4D4F-BA4C-89FB884CFB20}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FE3A80DE-D161-4449-9881-8583F9A678DD}

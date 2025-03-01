@@ -11,7 +11,7 @@ namespace Quadro.DataModel.Entities.Projects
 
 		[Header("State", Globalization.Language.en)]
 		[Header("Status", Globalization.Language.nl)]
-		public ProductionState State { get; set; }
+		public ManufacturingState State { get; set; }
 
 		[Header("Delivery id", Globalization.Language.en)]
 		[Header("Levering id", Globalization.Language.nl)]

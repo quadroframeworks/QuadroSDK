@@ -8,7 +8,7 @@ namespace Quadro.Interface.Projects
 {
     public interface IRelation
     {
-        string ERPId { get; set; }
+        string? ERPId { get; set; }
         string Name { get; }
     }
 }

@@ -11,7 +11,7 @@ using Quadro.Interface.Assemblies;
 
 namespace Quadro.DataModel.Model
 {
-	public class CompartmentDto
+	public class CompartmentModelDto
     {
         public string? SolutionHandleId { get;set; }
         public string? SubFrameHandleId { get; set; }

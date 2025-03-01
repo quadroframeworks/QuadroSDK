@@ -27,7 +27,7 @@
 
     public interface IManufacturingOrderLine : ILineBase
     {
-        ProductionState State { get;set; }
+        ManufacturingState State { get;set; }
         string? BomId { get; set; }
         string? DeliveryId { get; set; } 
         int DeliveryIndex { get; set; }
@@ -43,7 +43,7 @@
 
     }
 
-    public enum ProductionState
+    public enum ManufacturingState
     {
         Design,
         Published,
