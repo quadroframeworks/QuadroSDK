@@ -11,6 +11,6 @@ namespace Quadro.ShopFloor.Sdk
         void AddToolbarItem(IShopFloorToolbarItem item);
         void AddItem(IShopFloorItem item);
         void RemoveItem(IShopFloorItem item);
-        IEnumerable<IShopFloorItem> Items { get; } 
+        IEnumerable<IShopFloorItem> GetItems();
     }
 }

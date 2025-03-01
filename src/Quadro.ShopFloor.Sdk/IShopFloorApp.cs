@@ -11,8 +11,8 @@ namespace Quadro.ShopFloor.Sdk
     {
         IApiService Api { get; }
         void AddSingleton<T>();
-        void AddSingleton<T, I>();
-        void AddDynamic<T,I>();
+        void AddSingleton<T, I>() where I : T;
+        void AddDynamic<T,I>() where I : T;
         void AddTabContent<T>() where T:IShopFloorTabContent;
         void ReportProgress(double progress, object sender);
         void ReportBusy();
