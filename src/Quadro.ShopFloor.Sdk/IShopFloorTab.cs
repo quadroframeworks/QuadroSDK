@@ -8,13 +8,19 @@ namespace Quadro.ShopFloor.Sdk
 {
     public interface IShopFloorTab
     {
-        void SetHeader(string header);
-        void AddToolbarItem(IShopFloorToolbarItem item);
+        void SetTabStyle(TabStyle tabStyle);
+        void AddToolbarItem<T>() where T:IShopFloorToolbarItem;
         void AddItem(IShopFloorItem item);
         void RemoveItem(IShopFloorItem item);
         IEnumerable<IShopFloorItem> GetItems();
         void ReportProgress(double progress);
         void ReportBusy();
         void ReportFinished();
+    }
+
+    public enum TabStyle
+    {
+        ItemsList = 0,
+        CheckedItemsList = 1,
     }
 }

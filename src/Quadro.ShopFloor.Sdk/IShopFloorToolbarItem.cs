@@ -8,6 +8,7 @@ namespace Quadro.ShopFloor.Sdk
 {
     public interface IShopFloorToolbarItem
     {
+        void Init(IShopFloorTab tab);
         string Header { get; }
         bool IsSelected { get; set; }
         Task OnClick();

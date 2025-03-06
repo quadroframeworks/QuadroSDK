@@ -9,11 +9,13 @@ namespace Quadro.ShopFloor.Sdk
 {
     public interface IShopFloorItem
     {
-        string Header { get; }
+        string? TextA { get; }
+        string? TextB { get; }
         bool IsSelected { get; set; }
         Task OnClick();
         IList<ShopFloorItemMessage> Messages { get; }
     }
+
 
     public class ShopFloorItemMessage
     {

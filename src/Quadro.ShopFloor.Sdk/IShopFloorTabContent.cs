@@ -8,8 +8,9 @@ namespace Quadro.ShopFloor.Sdk
 {
     public interface IShopFloorTabContent
     {
-        string Header { get; }
-
+        string? Header { get; }
+        string? ColumnHeaderA { get; }
+        string? ColumnHeaderB { get; }
         void Init(IShopFloorTab tab);
 
     }
