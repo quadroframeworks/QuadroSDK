@@ -12,7 +12,7 @@ var api = kernel.Get<IApiService>();
 log.Debug("App started");
 
 log.Debug("Signing in...");
-var signinresult = await api.Auth.SignIn("[username]", "[password]");
+var signinresult = await api.Auth.SignIn("onno@ojn-it.nl", "onno");
 
 if (signinresult.Succes)
     log.Debug("Signing in succesfull");

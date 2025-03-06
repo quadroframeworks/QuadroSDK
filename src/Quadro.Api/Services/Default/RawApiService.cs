@@ -34,41 +34,46 @@ namespace Quadro.Api.Services.Default
             return baseUri!;
         }
 
-        public async Task<IEnumerable<T>> GetAllRaw<T>() where T : IStorable
+        public async Task<IEnumerable<T>> GetAllRaw<T>(string? baseUri = null) where T : IStorable
         {
-            var baseUri = GetBaseUri(typeof(T));
+            if (baseUri == null)
+                baseUri = GetBaseUri(typeof(T));
             var client = clientProvider.GetClient();
             HttpResponseMessage response = await client.GetAsync($"{baseUri}/GetAllRaw");
             return await jsonFunctions.ReadFromJsonAsync<IEnumerable<T>>(response);
         }
 
-        public async Task<T> CreateRaw<T>() where T : IStorable
+        public async Task<T> CreateRaw<T>(string? baseUri = null) where T : IStorable
         {
-            var baseUri = GetBaseUri(typeof(T));
+            if (baseUri == null)
+                baseUri = GetBaseUri(typeof(T));
             var client = clientProvider.GetClient();
             HttpResponseMessage response = await client.GetAsync($"{baseUri}/CreateRaw");
             return await jsonFunctions.ReadFromJsonAsync<T>(response);
         }
 
-        public async Task<T> ReadRaw<T>(string id) where T : IStorable
+        public async Task<T> ReadRaw<T>(string id, string? baseUri = null) where T : IStorable
         {
-            var baseUri = GetBaseUri(typeof(T));
+            if (baseUri == null)
+                baseUri = GetBaseUri(typeof(T));
             var client = clientProvider.GetClient();
             HttpResponseMessage response = await client.GetAsync($"{baseUri}/ReadRaw?id={id}");
             return await jsonFunctions.ReadFromJsonAsync<T>(response);
         }
 
-        public async Task<T> UpdateRaw<T>(T item) where T : IStorable
+        public async Task<T> UpdateRaw<T>(T item, string? baseUri = null) where T : IStorable
         {
-            var baseUri = GetBaseUri(typeof(T));
+            if (baseUri == null)
+                baseUri = GetBaseUri(typeof(T));
             var client = clientProvider.GetClient();
             HttpResponseMessage response = await client.PutAsJsonAsync($"{baseUri}/UpdateRaw", item, jsonFunctions.JsonOptions);
             return await jsonFunctions.ReadFromJsonAsync<T>(response);
         }
 
-        public async Task<T> DeleteRaw<T>(T item) where T : IStorable
+        public async Task<T> DeleteRaw<T>(T item, string? baseUri = null) where T : IStorable
         {
-            var baseUri = GetBaseUri(typeof(T));
+            if (baseUri == null)
+                baseUri = GetBaseUri(typeof(T));
             var client = clientProvider.GetClient();
             HttpResponseMessage response = await client.PutAsJsonAsync($"{baseUri}/DeleteRaw", item, jsonFunctions.JsonOptions);
             return await jsonFunctions.ReadFromJsonAsync<T>(response);
