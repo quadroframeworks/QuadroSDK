@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Quadro.Utils.Logging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,7 @@ namespace Quadro.ShopFloor.Sdk
         void ReportProgress(double progress);
         void ReportBusy();
         void ReportFinished();
+        void ShowMessage(Severity severity, string message);
     }
 
     public enum TabStyle

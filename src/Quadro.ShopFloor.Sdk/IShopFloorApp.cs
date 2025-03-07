@@ -14,8 +14,5 @@ namespace Quadro.ShopFloor.Sdk
         void AddSingleton<T, I>() where I : T;
         void AddDynamic<T,I>() where I : T;
         void AddTabContent<T>() where T:IShopFloorTabContent;
-        void ReportProgress(double progress, object sender);
-        void ReportBusy();
-        void ReportFinished();
     }
 }
