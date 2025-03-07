@@ -37,7 +37,7 @@ namespace Quadro.Interface.HingeAndLock
         double RangeToHeight { get; }
         double RangeFromWidth { get; }
         double RangeToWidth { get; }
-        string ExpressionEnable { get; set; }
+        string? ExpressionEnable { get; set; }
         TurnSide TurnSide { get; set; }
         FillingSide FillingSide { get; set; }
         FrameReference FrameReference { get; set; }
