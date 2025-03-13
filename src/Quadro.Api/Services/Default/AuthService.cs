@@ -57,12 +57,19 @@ namespace Quadro.Api.Services.Default
 
         public async Task<UserSignOutResult> SignOut()
         {
+            if (clientProvider.BearerToken == null)
+                return new UserSignOutResult() { Success = false };
+
             var url = $"Authorization/SignOut";
             var client = clientProvider.GetClient();
             var response = await client.GetAsync(url);
             var result = await jsonFunctions.ReadFromJsonAsync<UserSignOutResult>(response);
-            clientProvider.BearerToken = null;
-            clientProvider.RefreshToken = null;
+
+            if (result.Success)
+            {
+                clientProvider.BearerToken = null;
+                clientProvider.RefreshToken = null;
+            }
             return result;
         }
 
