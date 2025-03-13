@@ -7,7 +7,7 @@ namespace Quadro.DataModel.Authorization
         public bool Succes { get; set; } = false;
         public string? UserEmail { get; set; }
         public string? Bearer { get; set; }
-
+        public string? RefreshToken { get; set; }
 
     }
 }

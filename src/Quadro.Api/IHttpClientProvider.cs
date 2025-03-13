@@ -10,5 +10,6 @@ namespace Quadro.Api
     {
         HttpClient GetClient();
         string? BearerToken { get; set; }
+        string? RefreshToken { get; set; }
     }
 }

@@ -32,16 +32,14 @@ namespace Quadro.Api
                 currentClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             }
 
-            currentClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", bearertoken);
+            currentClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", BearerToken);
             return currentClient;
         }
 
         private HttpClient? currentClient;
 
 
-        private string? bearertoken = null;
-        public string? BearerToken { get => bearertoken; set => bearertoken = value; }
-
-
+        public string? BearerToken { get; set; }
+        public string? RefreshToken { get; set; }
     }
 }

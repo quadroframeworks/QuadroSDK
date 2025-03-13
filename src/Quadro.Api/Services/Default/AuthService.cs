@@ -8,11 +8,35 @@ namespace Quadro.Api.Services.Default
 
         private IHttpClientProvider clientProvider;
         private HttpJsonFunctions jsonFunctions;
+        private Timer refreshTimer = null!;
         public AuthService(IHttpClientProvider clientProvider, HttpJsonFunctions jsonFunctions)
         {
             this.clientProvider = clientProvider;
             this.jsonFunctions = jsonFunctions;
+            StartRefreshTimer();
 
+        }
+
+        public void StartRefreshTimer()
+        {
+            refreshTimer = new Timer(async _ =>
+            {
+                await RefreshToken();
+            }, null, TimeSpan.Zero, TimeSpan.FromMinutes(5));
+        }
+
+
+        private async Task RefreshToken()
+        {
+            if (clientProvider.RefreshToken == null)
+                return;
+
+            var url = $"Authorization/RefreshToken?refreshToken={clientProvider.RefreshToken}";
+            var client = clientProvider.GetClient();
+            var response = await client.GetAsync(url);
+            var result = await jsonFunctions.ReadFromJsonAsync<RefreshTokenResult>(response);
+            clientProvider.BearerToken = result.Bearer;
+            clientProvider.RefreshToken = result.RefreshToken;
         }
 
         public async Task<UserSignInResult> SignIn(string email, string password)
@@ -23,6 +47,7 @@ namespace Quadro.Api.Services.Default
             var response = await client.GetAsync(url);
             var result = await jsonFunctions.ReadFromJsonAsync<UserSignInResult>(response);
             clientProvider.BearerToken = result.Bearer;
+            clientProvider.RefreshToken = result.RefreshToken;
             return result;
         }
 
@@ -33,6 +58,7 @@ namespace Quadro.Api.Services.Default
             var response = await client.GetAsync(url);
             var result = await jsonFunctions.ReadFromJsonAsync<UserSignOutResult>(response);
             clientProvider.BearerToken = null;
+            clientProvider.RefreshToken = null;
             return result;
         }
 
