@@ -4,6 +4,10 @@ namespace Quadro.Api.Services
 {
     public interface IAuthService
     {
+
+        //Set bearer
+        void SetBearer(string bearer);
+
         //Auth
         Task<UserAccountInfo> CreateUserAccount(NewUserAccountInfo accountInfo);
         Task<UserSignInResult> SignIn(string email, string password);

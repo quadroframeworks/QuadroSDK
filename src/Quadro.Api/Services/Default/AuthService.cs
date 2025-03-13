@@ -25,6 +25,10 @@ namespace Quadro.Api.Services.Default
             }, null, TimeSpan.Zero, TimeSpan.FromMinutes(5));
         }
 
+        public void SetBearer(string bearer)
+        {
+            clientProvider.BearerToken = bearer;
+        }
 
         private async Task RefreshToken()
         {
