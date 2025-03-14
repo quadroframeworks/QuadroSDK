@@ -24,7 +24,7 @@ namespace Quadro.Api
         {
             if (currentClient == null)
             {
-                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+                //ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                 currentClient = new HttpClient();
                 currentClient.BaseAddress = new Uri(config.BaseUri);
                 currentClient.Timeout = TimeSpan.FromSeconds(900);
