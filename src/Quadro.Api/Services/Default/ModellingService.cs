@@ -34,7 +34,7 @@ namespace Quadro.Api.Services.Default
         public async Task<MainAssemblyModelDto> GetAssemblyModel(string baseUri, UnitOfWork uow, string dtoId)
         {
             var url = $"{baseUri}/GetDataModel?dtoId={dtoId}";
-            var client = clientProvider.GetClient();
+            var client = await clientProvider.GetClient();
             var response = await client.PutAsJsonAsync(url, uow, jsonFunctions.JsonOptions);
             return await jsonFunctions.ReadFromJsonAsync<MainAssemblyModelDto>(response);
         }
@@ -43,7 +43,7 @@ namespace Quadro.Api.Services.Default
         public async Task<WebFrameModelDto> GetWebFrontViewSvg(UnitOfWork uow, string dtoId)
         {
             var url = $"{baseUriWeb}/GetWebFrontViewSvg?dtoId={dtoId}";
-            var client = clientProvider.GetClient();
+            var client = await clientProvider.GetClient();
             var response = await client.PutAsJsonAsync(url, uow, jsonFunctions.JsonOptions);
             return await jsonFunctions.ReadFromJsonAsync<WebFrameModelDto>(response);
         }
@@ -51,7 +51,7 @@ namespace Quadro.Api.Services.Default
         public async Task<BomModelDto> GetBom(string baseUri, UnitOfWork uow, string dtoId)
         {
             var url = $"{baseUri}/GetBom?dtoId={dtoId}";
-            var client = clientProvider.GetClient();
+            var client = await clientProvider.GetClient();
             var response = await client.PutAsJsonAsync(url, uow, jsonFunctions.JsonOptions);
             return await jsonFunctions.ReadFromJsonAsync<BomModelDto>(response);
         }
@@ -60,7 +60,7 @@ namespace Quadro.Api.Services.Default
         public async Task<Drawing2DDto> GetModel2D(string baseUri, string entityId)
         {
             var url = $"{baseUri}/GetModel2D?entityId={entityId}";
-            var client = clientProvider.GetClient();
+            var client = await clientProvider.GetClient();
             var response = await client.GetAsync(url);
             return await jsonFunctions.ReadFromJsonAsync<Drawing2DDto>(response);
         }
@@ -68,7 +68,7 @@ namespace Quadro.Api.Services.Default
         public async Task<Drawing2DDto> GetModel2D(string baseUri, UnitOfWork uow, string dtoId)
         {
             var url = $"{baseUri}/GetModel2D?dtoId={dtoId}";
-            var client = clientProvider.GetClient();
+            var client = await clientProvider.GetClient();
             var response = await client.PutAsJsonAsync(url, uow, jsonFunctions.JsonOptions);
             return await jsonFunctions.ReadFromJsonAsync<Drawing2DDto>(response);
         }
@@ -77,7 +77,7 @@ namespace Quadro.Api.Services.Default
         public async Task<ToolModelDto> GetToolModel(string toolId)
         {
             var url = $"{baseUriTools}/GetToolModelById?toolId={toolId}&toolIndex=0";
-            var client = clientProvider.GetClient();
+            var client = await clientProvider.GetClient();
             var response = await client.GetAsync(url);
             return await jsonFunctions.ReadFromJsonAsync<ToolModelDto>(response);
         }
@@ -85,7 +85,7 @@ namespace Quadro.Api.Services.Default
         public async Task<ToolModelDto> GetToolModel(UnitOfWork uow, string dtoId)
         {
             var url = $"{baseUriTools}/GetToolModel?dtoId={dtoId}&toolIndex=0";
-            var client = clientProvider.GetClient();
+            var client = await clientProvider.GetClient();
             var response = await client.PutAsJsonAsync(url, uow, jsonFunctions.JsonOptions);
             return await jsonFunctions.ReadFromJsonAsync<ToolModelDto>(response);
         }
@@ -94,7 +94,7 @@ namespace Quadro.Api.Services.Default
         public async Task<ProfileProgramModelDto> GetProfileProgramModel(string programId)
         {
             var url = $"{baseUriProfilePrograms}/GetProgramModelById?programId={programId}";
-            var client = clientProvider.GetClient();
+            var client = await clientProvider.GetClient();
             var response = await client.GetAsync(url);
             return await jsonFunctions.ReadFromJsonAsync<ProfileProgramModelDto>(response);
         }
@@ -102,7 +102,7 @@ namespace Quadro.Api.Services.Default
         public async Task<ProfileProgramModelDto> GetProfileProgramModel(UnitOfWork uow, string dtoId)
         {
             var url = $"{baseUriProfilePrograms}/GetProgramModel?dtoId={dtoId}";
-            var client = clientProvider.GetClient();
+            var client = await clientProvider.GetClient();
             var response = await client.PutAsJsonAsync(url, uow, jsonFunctions.JsonOptions);
             return await jsonFunctions.ReadFromJsonAsync<ProfileProgramModelDto>(response);
         }
@@ -111,7 +111,7 @@ namespace Quadro.Api.Services.Default
         public async Task<DowelProgramModelDto> GetDowelProgramModel(string programId)
         {
             var url = $"{baseUriDowelPrograms}/GetProgramModelById?programId={programId}";
-            var client = clientProvider.GetClient();
+            var client = await clientProvider.GetClient();
             var response = await client.GetAsync(url);
             return await jsonFunctions.ReadFromJsonAsync<DowelProgramModelDto>(response);
         }
@@ -119,7 +119,7 @@ namespace Quadro.Api.Services.Default
         public async Task<DowelProgramModelDto> GetDowelProgramModel(UnitOfWork uow, string dtoId)
         {
             var url = $"{baseUriDowelPrograms}/GetProgramModel?dtoId={dtoId}";
-            var client = clientProvider.GetClient();
+            var client = await clientProvider.GetClient();
             var response = await client.PutAsJsonAsync(url, uow, jsonFunctions.JsonOptions);
             return await jsonFunctions.ReadFromJsonAsync<DowelProgramModelDto>(response);
         }
@@ -129,7 +129,7 @@ namespace Quadro.Api.Services.Default
         public async Task<RabbetSwitchEditorProgramModelDto> GetRabbetSwitchProgramModel(string programId)
         {
             var url = $"{baseUriRabbetSwitchPrograms}/GetProgramModelById?programId={programId}";
-            var client = clientProvider.GetClient();
+            var client = await clientProvider.GetClient();
             var response = await client.GetAsync(url);
             return await jsonFunctions.ReadFromJsonAsync<RabbetSwitchEditorProgramModelDto>(response);
         }
@@ -137,7 +137,7 @@ namespace Quadro.Api.Services.Default
         public async Task<RabbetSwitchEditorProgramModelDto> GetRabbetSwitchProgramModel(UnitOfWork uow, string dtoId)
         {
             var url = $"{baseUriRabbetSwitchPrograms}/GetProgramModel?dtoId={dtoId}";
-            var client = clientProvider.GetClient();
+            var client = await clientProvider.GetClient();
             var response = await client.PutAsJsonAsync(url, uow, jsonFunctions.JsonOptions);
             return await jsonFunctions.ReadFromJsonAsync<RabbetSwitchEditorProgramModelDto>(response);
         }

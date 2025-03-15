@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Quadro.DataModel.Authorization
 {
-    public class RefreshTokenResult
+    public class InvitationAcceptationResult
     {
-        public string? Bearer { get; set; }
-        public string? RefreshToken { get; set; }
+        public bool Succes { get; set; }
+        public string? CompanyName { get; set; }
     }
 }

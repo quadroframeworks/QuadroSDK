@@ -8,8 +8,6 @@ namespace Quadro.Api
 {
     public interface IHttpClientProvider
     {
-        HttpClient GetClient();
-        string? BearerToken { get; set; }
-        string? RefreshToken { get; set; }
+        Task<HttpClient> GetClient();
     }
 }

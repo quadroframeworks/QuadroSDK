@@ -14,13 +14,14 @@ namespace Quadro.Api
     {
 
         private readonly IApiConfig config;
-
-        public HttpClientProvider(IApiConfig config)
+        private readonly IQuadroAccessTokenProvider accessTokenProvider;
+        public HttpClientProvider(IApiConfig config, IQuadroAccessTokenProvider accessTokenProvider)
         {
             this.config = config;
+            this.accessTokenProvider = accessTokenProvider;
         }
 
-        public HttpClient GetClient()
+        public async Task<HttpClient> GetClient()
         {
             if (currentClient == null)
             {
@@ -32,14 +33,13 @@ namespace Quadro.Api
                 currentClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             }
 
-            currentClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", BearerToken);
+            var token = await accessTokenProvider.GetAccessToken();
+            currentClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             return currentClient;
         }
 
         private HttpClient? currentClient;
 
 
-        public string? BearerToken { get; set; }
-        public string? RefreshToken { get; set; }
     }
 }

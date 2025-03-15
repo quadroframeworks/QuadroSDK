@@ -29,7 +29,7 @@ namespace Quadro.Api.Services.Default
         public async Task<OrderLineBomModelDto> GetOrderLineBomModel(string bomId)
         {
             var url = $"{baseUriProjects}/GetOrderLineBomModel?bomId={bomId}";
-            var client = clientProvider.GetClient();
+            var client = await clientProvider.GetClient();
             var response = await client.GetAsync(url);
             return await jsonFunctions.ReadFromJsonAsync<OrderLineBomModelDto>(response);
         }
@@ -39,7 +39,7 @@ namespace Quadro.Api.Services.Default
         public async Task<string> GetBmhProductionOrder(string projectId, string manufacturingOrderId)
         {
             var url = $"{baseUriProjects}/CreateBosProductionOrder?projectId={projectId}&manufacturingOrderId={manufacturingOrderId}";
-            var client = clientProvider.GetClient();
+            var client = await clientProvider.GetClient();
             var response = await client.GetAsync(url);
             return await jsonFunctions.ReadAsStringAsync(response);
         }
@@ -47,7 +47,7 @@ namespace Quadro.Api.Services.Default
         public async Task<WorkbookDto> GetWorkBook(string projectId, string manufacturingOrderId)
         {
             var url = $"{baseUriProjects}/GetWorkBook?projectId={projectId}&manufacturingOrderId={manufacturingOrderId}";
-            var client = clientProvider.GetClient();
+            var client = await clientProvider.GetClient();
             var response = await client.GetAsync(url);
             return await jsonFunctions.ReadFromJsonAsync<WorkbookDto>(response);
         }
@@ -58,7 +58,7 @@ namespace Quadro.Api.Services.Default
         public async Task<IEnumerable<ProductionFrameDto>> GetProductionFrames(string manufacturingOrderId)
         {
             var url = $"{baseUriProjects}/GetProductionFrames?manufacturingOrderId={manufacturingOrderId}";
-            var client = clientProvider.GetClient();
+            var client = await clientProvider.GetClient();
             var response = await client.GetAsync(url);
             return await jsonFunctions.ReadFromJsonAsync<IEnumerable<ProductionFrameDto>>(response);
         }
@@ -66,7 +66,7 @@ namespace Quadro.Api.Services.Default
         public async Task<ProductionPartModelDto> GetProductionPartModel(string productionPartId, string routeStationId)
         {
             var url = $"{baseUriProjects}/GetProductionPartModel?productionPartId={productionPartId}&routeStationId={routeStationId}";
-            var client = clientProvider.GetClient();
+            var client = await clientProvider.GetClient();
             var response = await client.GetAsync(url);
             return await jsonFunctions.ReadFromJsonAsync<ProductionPartModelDto>(response);
         }
@@ -74,7 +74,7 @@ namespace Quadro.Api.Services.Default
         public async Task<MainAssemblyModelDto> GetProductionFrameModel(string productionFrameId, string routeStationId)
         {
             var url = $"{baseUriProjects}/GetProductionFrameModel?productionFrameId={productionFrameId}&routeStationId={routeStationId}";
-            var client = clientProvider.GetClient();
+            var client = await clientProvider.GetClient();
             var response = await client.GetAsync(url);
             return await jsonFunctions.ReadFromJsonAsync<MainAssemblyModelDto>(response);
         }
@@ -82,7 +82,7 @@ namespace Quadro.Api.Services.Default
         public async Task<HeaderedDescription> GetProductionFrameDescription(string productionFrameId)
         {
             var url = $"{baseUriProjects}/GetProductionFrameDescription?productionFrameId={productionFrameId}";
-            var client = clientProvider.GetClient();
+            var client = await clientProvider.GetClient();
             var response = await client.GetAsync(url);
             return await jsonFunctions.ReadFromJsonAsync<HeaderedDescription>(response);
         }

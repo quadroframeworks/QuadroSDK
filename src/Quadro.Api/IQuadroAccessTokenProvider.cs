@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Quadro.DataModel.Authorization
+namespace Quadro.Api
 {
-    public class DeleteUserAccountResult
+    public interface IQuadroAccessTokenProvider
     {
-        public bool Succes { get; set; } = false;
+        Task<string?> GetAccessToken();
     }
 }

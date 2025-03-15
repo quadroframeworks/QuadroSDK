@@ -26,7 +26,7 @@ namespace Quadro.Api.Services.Default
 
         public async Task<UnitOfWork> GetShoppingCart()
         {
-            var client = clientProvider.GetClient();
+            var client = await clientProvider.GetClient();
             HttpResponseMessage response = await client.GetAsync($"{webOrderEndpoint}/GetShoppingCart");
             return await jsonFunctions.ReadFromJsonAsync<UnitOfWork>(response);
         }
