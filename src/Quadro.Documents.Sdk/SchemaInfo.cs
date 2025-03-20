@@ -4,6 +4,10 @@ namespace Quadro.Documents
 {
     public class SchemaInfo
     {
+        public SchemaInfo()
+        {
+
+        }
         public string TypeName { get; set; } = null!;
         public string EntityName { get; set; } = null!;
         public string GetSchemaEndPoint { get; set; } = null!;
