@@ -16,6 +16,7 @@ namespace Quadro.Documents.Sdk
     public class EntityPropertyHeader
     {
         public string PropertyName { get; set; } = null!;
+        public string? Unit { get; set; }
         public List<NamingTranslation> Translations { get; set; } = new List<NamingTranslation>();
     }
 
@@ -24,6 +25,5 @@ namespace Quadro.Documents.Sdk
         public string Id { get; set; } = null!;
         public string? FilterString { get; set; }
         public List<string?> Values { get; set; } = new List<string?>();
-        public List<string?> Units { get; set; } = new List<string?>();
     }
 }
