@@ -41,17 +41,8 @@ namespace Quadro.Interface.Profiling
         Border,
         FrameWork,
         GlassBeading,
-
-        FrameContra = 100,
-        FrameEnding = 101,
-        WindowDoorContra = 110,
-        WindowDoorEnding = 111,
-        BorderContra = 120,
-        BorderEnding = 121,
-        FrameWorkContra = 130,
-        FrameWorkEnding = 131,
-        GlassBeadingContra = 140,
-        GlassBeadingEnding = 141,
+        RabbetChange,
+        Misc = 100,
     }
 
     public enum ProfileSide
