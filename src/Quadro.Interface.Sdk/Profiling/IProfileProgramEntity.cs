@@ -1,4 +1,5 @@
 ﻿using CPBase.Shapes;
+using Quadro.Globalization.Attributes;
 using Quadro.Interface.Profiles;
 using Quadro.Interface.Programs;
 
@@ -16,7 +17,10 @@ namespace Quadro.Interface.Profiling
         bool EnableAsDesigned { get; set; }
         bool EnableFlipped { get; set; }
         double ProfileHeight { get; set; }
-        double RabbetDepth { get; }
+        double RabbetWidth { get; set; }
+        double RabbetHeight { get; set; }
+        double EdgeWidth { get; set; }
+        double ContraOffset { get; }
         IPathShape2D DesignContour { get; }
         IEnumerable<IContraProgramLink> ContraPrograms { get; }
         IEnumerable<IProgramRun> RunsAsDesigned { get; }

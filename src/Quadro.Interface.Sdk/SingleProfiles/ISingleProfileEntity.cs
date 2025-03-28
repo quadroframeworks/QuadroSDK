@@ -7,6 +7,9 @@ namespace Quadro.Interface.SingleProfiles
     {
         string Id { get; }
         string Name { get; }
+        string Description { get; }
+        public double Width { get; set; }
+        public double Height { get; set; }
         string? CatalogItemId { get; }
         string? ColorId { get; }
         string MaterialId { get; }

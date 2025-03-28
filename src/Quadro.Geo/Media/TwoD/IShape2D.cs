@@ -129,8 +129,8 @@ namespace CPBase.Shapes
             ToPoint = to;
             Center = center;
             Radius = (ToPoint - Center).Length;
-            IsCcw = Vector.CrossProduct(ToPoint - Center, FromPoint - Center) > 0;
-#warning Gokje, checken of richting klopt
+            IsCcw = Vector.CrossProduct(ToPoint - Center, FromPoint - Center) < 0;
+#warning Aangepast, maar is dit nu goed?
             IsLargeArc = false;
             UpdateBounds();
         }

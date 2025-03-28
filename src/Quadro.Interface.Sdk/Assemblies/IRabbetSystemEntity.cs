@@ -1,9 +1,13 @@
-﻿namespace Quadro.Interface.Assemblies
+﻿using Quadro.Interface.Context;
+
+namespace Quadro.Interface.Assemblies
 {
 
 	public interface IRabbetSystemEntity
     {
         string Name { get; }
+        FrameContextType ContextType { get; }
+        FillingTurnConfiguration TurnConfig { get; }
         IEnumerable<IRabbetSelection> Selections { get; }
     }
 
