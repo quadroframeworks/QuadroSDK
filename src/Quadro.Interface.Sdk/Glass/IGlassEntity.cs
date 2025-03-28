@@ -1,4 +1,5 @@
-﻿using Quadro.Interface.Solutions;
+﻿using Quadro.Globalization.Attributes;
+using Quadro.Interface.Solutions;
 
 namespace Quadro.Interface.Glass
 {
@@ -10,13 +11,20 @@ namespace Quadro.Interface.Glass
         double Thickness { get; }
         string LayerString { get; set; }
         string? GlassGroupId { get; set; }
+        public string? ColorId { get; set; }
+        public double MaxWidth { get; set; }
+        public double MaxHeight { get; set; }
         bool IsWebReleased { get; set; }
 		FastSelectionGlassConfig GlassConfig { get; set; }
-		double UValue { get; set; }
+        double RwValue { get; set; }
+        double RwCtrValue { get; set; }
+        double UValue { get; set; }
         double LTAValue { get; set; }
         double ZTAValue { get; set; }
         double GValue { get; set; }
+        double FireProofTime { get; set; }
         IEnumerable<IGlassLayer> Layers { get; }
+
     }
 
     public interface IGlassLayer

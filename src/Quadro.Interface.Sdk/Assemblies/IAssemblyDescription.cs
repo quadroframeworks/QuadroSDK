@@ -19,7 +19,6 @@ namespace Quadro.Interface.Assemblies
         AssemblyContentType ContentType { get; }
         string? AssemblyGroupId { get; set; }
         string? AssemblyApplicationId { get; set; }
-        double RabbetOffsetZ { get; }
         double RabbetSpacingZ { get; }
         string BottomOffset { get; }
         string? CatalogItemId { get; set; }
