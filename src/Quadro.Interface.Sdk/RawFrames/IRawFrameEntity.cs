@@ -9,12 +9,12 @@ namespace Quadro.Interface.RawFrames
         string Name { get; }
         string WireFrameId { get; }
         FrameContextType ContextType { get; } //Used for filtering
-        IEnumerable<IFramePartDescription> Parts { get; }
+        IEnumerable<IPartConfiguration> Parts { get; }
     }
 
     public interface IRawFrameConfiguration : IRawFrameEntity
     {
-        IEnumerable<IFramePartDescription> AdditionalParts { get; }
+        IEnumerable<IPartConfiguration> AdditionalParts { get; }
     }
 
 
