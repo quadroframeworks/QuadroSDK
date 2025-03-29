@@ -29,7 +29,6 @@ namespace Quadro.Interface.Assemblies
         FastSelectionRodConfig TestRodConfig { get; set; }
         IEnumerable<IParentRabbetReference> Rabbets { get; }
         IEnumerable<ISubFramePlacement> SubFrames { get; }
-        IEnumerable<IPartConfiguration> PartConfigurations { get; }
         IEnumerable<IOperationSetPlacement> OperationSets { get; }
         IEnumerable<IAssemblyFilling> Fillings { get; }
         IEnumerable<IRabbetSelectionFilter> RabbetSelectionFilters { get; }
