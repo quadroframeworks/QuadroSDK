@@ -64,9 +64,12 @@ namespace Quadro.Interface.Solutions
     public interface ISolutionFilling : ISolutionHandle, ICustomizable
     {
         string? Name { get; }
+
         string? AssemblyGroupId { get; set; }
         string? AssemblyApplicationId { get; set; }
         string? FillingAssemblyId { get; set; }
+        string? PlacementOptionId { get; set; }
+        string? PurchasedDoorId { get; set; }
         string? RabbetSelectionId { get; set; }
         public FastSelectionRodConfig RodConfig { get; set; }
         AssemblyFillingType Type { get; set; }

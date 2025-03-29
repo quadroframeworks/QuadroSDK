@@ -22,6 +22,8 @@ namespace Quadro.Interface.Assemblies
         double RabbetSpacingZ { get; }
         string BottomOffset { get; }
         string? CatalogItemId { get; set; }
+        string? TestPlacementOptionId { get; set; }
+        string? TestPurchasedDoorId { get; set; }
         string? TestRabbetSelectionId { get; }
         public string? TestSillId { get; }
         FastSelectionRodConfig TestRodConfig { get; set; }
@@ -165,21 +167,28 @@ namespace Quadro.Interface.Assemblies
         bool FlipFillingSide { get; }
         bool IsSubCompartment { get; set; }
         int MultiCompartmentIndex { get; set; }
-
-        //Depending on type, one of these has a value
-        string? RawFrameId { get; }
-        string? GlassId { get; set; }
-        string? PlateId { get; set; }
-        string? HingeAndLockId { get; set; }
         bool AllowFilling { get; set; }
         bool AllowVentGrill { get; set; }
         bool AllowSill { get; set; }
         double WireOffsetZ { get; }
         public string? OuterMillingId { get; set; }
         string? DowelApplicationId { get; }
+        IEnumerable<IPlacementOption> Options { get; }
         IEnumerable<IWireOffset> WireOffsets { get; }
         IPartDistribution PartDistribution { get; }
         IEnumerable<IProfileStyle> ProfileStyles { get; }
+    }
+
+    public interface IPlacementOption
+    {
+        string? OptionId { get; }
+
+        //Depending on type, one of these has a value
+        string? RawFrameId { get; }
+        string? PlateId { get; set; }
+        //Glass is fully flexible
+        string? HingeAndLockId { get; set; }
+        string? PurchasedDoorGroupId { get; set; }
     }
 
     public interface IParentRabbetReference
@@ -261,6 +270,9 @@ namespace Quadro.Interface.Assemblies
         [EnumValue("Hinge and lock", Globalization.Language.en)]
         [EnumValue("Hang en sluit", Globalization.Language.nl)]
         HingeAndLock,
+        [EnumValue("Purchased door", Globalization.Language.en)]
+        [EnumValue("Koopdeur", Globalization.Language.nl)]
+        PurchasedDoor,
     }
 
     public interface IOperationSetPlacement
