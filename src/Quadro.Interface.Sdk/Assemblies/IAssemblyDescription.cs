@@ -3,7 +3,6 @@ using Quadro.Interface.Context;
 using Quadro.Interface.CustomProperties;
 using Quadro.Interface.Enums;
 using Quadro.Interface.Profiles;
-using Quadro.Interface.RawFrames;
 using Quadro.Interface.Solutions;
 using Quadro.Interface.WireFrames;
 
@@ -25,12 +24,11 @@ namespace Quadro.Interface.Assemblies
         string? TestPlacementOptionId { get; set; }
         string? TestPurchasedDoorId { get; set; }
         string? TestRabbetSelectionId { get; }
-        public string? TestSillId { get; }
+        string? TestSillId { get; }
         FastSelectionRodConfig TestRodConfig { get; set; }
         IEnumerable<IParentRabbetReference> Rabbets { get; }
         IEnumerable<ISubFramePlacement> SubFrames { get; }
         IEnumerable<IOperationSetPlacement> OperationSets { get; }
-        IEnumerable<IAssemblyFilling> Fillings { get; }
         IEnumerable<IRabbetSelectionFilter> RabbetSelectionFilters { get; }
     }
     public interface IMainAssemblyDescription : IAssemblyDescription
@@ -126,33 +124,18 @@ namespace Quadro.Interface.Assemblies
 
     public enum AssemblyFillingType
     {
-        [EnumValue("Undefined", Globalization.Language.en)]
+        [EnumValue("No filling", Globalization.Language.en)]
         [EnumValue("Geen", Globalization.Language.nl)]
-        Undefined = 0,
+        NoFilling = 0,
         [EnumValue("Glass", Globalization.Language.en)]
         [EnumValue("Glasvak", Globalization.Language.nl)]
-        Glass = 1,
-        [EnumValue("Plate", Globalization.Language.en)]
-        [EnumValue("Plaatvak", Globalization.Language.nl)]
-        Plate = 2,
-        [EnumValue("Window", Globalization.Language.en)]
-        [EnumValue("Raamvak", Globalization.Language.nl)]
-		Window = 10,
-        [EnumValue("Door", Globalization.Language.en)]
-        [EnumValue("Deurvak", Globalization.Language.nl)]
-        Door = 11,
-        [EnumValue("Glass or window", Globalization.Language.en)]
-        [EnumValue("Glas- of raamvak", Globalization.Language.nl)]
-        GlassOrWindow = 20,
-        [EnumValue("Glass or door", Globalization.Language.en)]
-        [EnumValue("Glas- of deurvak", Globalization.Language.nl)]
-        GlassOrDoor = 21,
-        [EnumValue("By assembly", Globalization.Language.en)]
-        [EnumValue("Door samenstelling", Globalization.Language.nl)]
-        ByAssembly = 100,
+        Glass = 100,
+        [EnumValue("Fixed by assembly", Globalization.Language.en)]
+        [EnumValue("Vast door samenstelling", Globalization.Language.nl)]
+        ByAssembly = 200,
         [EnumValue("By user", Globalization.Language.en)]
         [EnumValue("Door gebruiker", Globalization.Language.nl)]
-        ByUser = 101,
+        ByUser = 300,
     }
 
     public interface ISubFramePlacement
@@ -174,7 +157,6 @@ namespace Quadro.Interface.Assemblies
         string? DowelApplicationId { get; }
         IEnumerable<IPlacementOption> Options { get; }
         IEnumerable<IWireOffset> WireOffsets { get; }
-        IPartDistribution PartDistribution { get; }
         IEnumerable<IProfileStyle> ProfileStyles { get; }
     }
 
@@ -210,19 +192,6 @@ namespace Quadro.Interface.Assemblies
         string Id { get; }
         double OffsetY { get; }
         WireIdentifier WireId { get; }
-    }
-
-    public interface IPartDistribution
-    {
-        string Id { get; }
-        bool IsDynamic { get; set; }
-        DistributionTrigger EnableDistribution { get; set; }
-        string NrHorizontal { get; set; }
-        string NrVertical { get; set; }
-        bool ExtendVertical { get; set; }
-        string? DynamicContraId { get; set; }
-        string? DynamicSideProfileId { get; set; }
-        string? DynamicMidProfileId { get; set; }
     }
 
     public interface IMultiCompartmentDivider

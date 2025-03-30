@@ -9,7 +9,6 @@ namespace Quadro.Interface.WireFrames
         string Name { get; }
         IEnumerable<IWireDescription> Wires { get; }
         IEnumerable<IWireConstraint> Constraints { get; }
-        IWireFrameEntity Clone();
 
     }
 
