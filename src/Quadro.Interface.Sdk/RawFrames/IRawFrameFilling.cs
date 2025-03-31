@@ -19,6 +19,7 @@ namespace Quadro.Interface.RawFrames
         string? AssemblyApplicationId { get; set; }
         string? FillingAssemblyId { get; set; }
         string? PlacementOptionId { get; set; }
+        string? HingAndLockOptionId { get; set; }
         string? RabbetSelectionId { get; set; }
         FillingTurnConfiguration TurnConfiguration { get; set; }
         TurnSide TurnSide { get; set; }

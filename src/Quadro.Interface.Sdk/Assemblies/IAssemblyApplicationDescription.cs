@@ -4,7 +4,7 @@
     {
         string Name { get; }
         string? AssemblyGroupId { get; }
-        IEnumerable<IAssemblyApplicationOption> Options { get; }
+        IEnumerable<IAssemblyApplicationOption> OptionsFill { get; }
     }
 
 

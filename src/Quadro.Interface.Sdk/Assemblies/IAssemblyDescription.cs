@@ -21,11 +21,12 @@ namespace Quadro.Interface.Assemblies
         double RabbetSpacingZ { get; }
         string BottomOffset { get; }
         string? CatalogItemId { get; set; }
+        double TestPartHeightAncestor { get; }
         string? TestPlacementOptionId { get; set; }
+        string? TestHingAndLockOptionId { get; set; }
         string? TestPurchasedDoorId { get; set; }
         string? TestRabbetSelectionId { get; }
         string? TestSillId { get; }
-        FastSelectionRodConfig TestRodConfig { get; set; }
         IEnumerable<IParentRabbetReference> Rabbets { get; }
         IEnumerable<ISubFramePlacement> SubFrames { get; }
         IEnumerable<IOperationSetPlacement> OperationSets { get; }

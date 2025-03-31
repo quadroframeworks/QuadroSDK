@@ -69,6 +69,7 @@ namespace Quadro.Interface.Solutions
         string? AssemblyApplicationId { get; set; }
         string? FillingAssemblyId { get; set; }
         string? PlacementOptionId { get; set; }
+        string? HingeAndLockOptionId { get; set; }
         string? PurchasedDoorId { get; set; }
         string? RabbetSelectionId { get; set; }
         public FastSelectionRodConfig RodConfig { get; set; }
