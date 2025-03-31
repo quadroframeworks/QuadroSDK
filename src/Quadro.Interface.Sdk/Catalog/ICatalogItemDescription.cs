@@ -54,6 +54,7 @@ namespace Quadro.Interface.Catalog
         SingleProfile = 110,            //Directly linked by description
         VentilationGrill = 120,         //Directly linked by description
         Sill = 130,                     //Directly linked by description
+        PurchasedDoor = 140,            //Directly linked by description
         Order = 200,                    //Will be chosen for each order line
         Assembly = 201,                 //Directly linked by description
         Frame = 202,                    //No content yet, but acts as folder in bom

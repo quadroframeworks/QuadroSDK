@@ -8,6 +8,7 @@ namespace CPBase.Geo.Media.TwoD
         Rect GetBounds();
         void Scale(double factor, bool keepEntitySizes, double newDimensionRowSpacing);
         void Translate(Vector v);
+        void Transform(Matrix m);
         IList<IPoint2DEntity> Points { get; }
         IList<IShape2DEntity> Shapes { get; }
         IList<IPath2DEntity> Paths { get; }  

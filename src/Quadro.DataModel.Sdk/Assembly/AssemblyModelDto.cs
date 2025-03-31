@@ -1,4 +1,5 @@
-﻿using Quadro.DataModel.Geometrics;
+﻿using Quadro.DataModel.Assembly;
+using Quadro.DataModel.Geometrics;
 using Quadro.DataModel.Model.FrameCertificates;
 using Quadro.Interface.Assemblies;
 using Quadro.Interface.Enums;
@@ -16,6 +17,7 @@ namespace Quadro.DataModel.Model
         public List<HingeAndLockSetModelDto> HingeAndLockSets { get; set; } = new List<HingeAndLockSetModelDto>();
         public List<GlassModelDto> GlassModels { get; set; } = new List<GlassModelDto>();
         public List<PlateModelDto> PlateModels { get; set; } = new List<PlateModelDto>();
+        public List<PurchasedDoorModelDto> PurchasedDoors { get; set; } = new List<PurchasedDoorModelDto>();
         public List<FrameOperationSetModelDto> FrameOperationSets { get; set; } = new List<FrameOperationSetModelDto>();
         public List<FillingAssemblyModelDto> Fillings { get; set; } = new List<FillingAssemblyModelDto>();
         public Matrix3DDto AssemblyTransform { get; set; } = new Matrix3DDto();
