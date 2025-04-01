@@ -64,7 +64,7 @@ namespace Quadro.Interface.Solutions
     public interface ISolutionFilling : ISolutionHandle, ICustomizable
     {
         string? Name { get; }
-
+        bool IsGlassFilling { get; set; }
         string? AssemblyGroupId { get; set; }
         string? AssemblyApplicationId { get; set; }
         string? FillingAssemblyId { get; set; }
@@ -72,8 +72,6 @@ namespace Quadro.Interface.Solutions
         string? HingeAndLockOptionId { get; set; }
         string? PurchasedDoorId { get; set; }
         string? RabbetSelectionId { get; set; }
-        public FastSelectionRodConfig RodConfig { get; set; }
-        AssemblyFillingType Type { get; set; }
         string? PaintSystemId { get; set; }
         string? ColorId { get; set; }
         string? GlassId { get; set; }
