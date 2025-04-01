@@ -155,6 +155,7 @@ namespace Quadro.Interface.Assemblies
         bool AllowSill { get; set; }
         double WireOffsetZ { get; }
         public string? OuterMillingId { get; set; }
+        string? PlateId { get; set; }
         string? DowelApplicationId { get; }
         IEnumerable<IPlacementOption> Options { get; }
         IEnumerable<IWireOffset> WireOffsets { get; }
@@ -164,13 +165,11 @@ namespace Quadro.Interface.Assemblies
     public interface IPlacementOption
     {
         string? OptionId { get; }
+        bool IsPurchasedDoor { get; }
 
         //Depending on type, one of these has a value
         string? RawFrameId { get; }
-        string? PlateId { get; set; }
-        //Glass is fully flexible
         string? HingeAndLockId { get; set; }
-        string? PurchasedDoorGroupId { get; set; }
     }
 
     public interface IParentRabbetReference
@@ -239,9 +238,6 @@ namespace Quadro.Interface.Assemblies
         [EnumValue("Hinge and lock", Globalization.Language.en)]
         [EnumValue("Hang en sluit", Globalization.Language.nl)]
         HingeAndLock,
-        [EnumValue("Purchased door", Globalization.Language.en)]
-        [EnumValue("Koopdeur", Globalization.Language.nl)]
-        PurchasedDoor,
     }
 
     public interface IOperationSetPlacement

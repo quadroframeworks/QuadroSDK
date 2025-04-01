@@ -12,6 +12,7 @@ namespace Quadro.DataModel.Assembly
     {
         public string Id { get; set; } = Guid.NewGuid().ToString();
         public string? Name { get; set; }
+        public string? SubFrameHandleId { get; set; }
         public List<int> SectionIds { get; set; } = new List<int>();
         public string? DescriptionId { get; set; }
         public string? CatalogItemId { get; set; }

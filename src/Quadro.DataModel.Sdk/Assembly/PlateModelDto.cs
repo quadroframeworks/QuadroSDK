@@ -7,6 +7,7 @@ namespace Quadro.DataModel.Model
         public PlateModelDto() { }
         public string Id { get; set; } = Guid.NewGuid().ToString();
         public string? Name { get; set; }
+        public string? SubFrameHandleId { get; set; }
         public List<int> SectionIds { get; set; } = new List<int>();
         public string DescriptionId { get; set; } = null!;
         public string? CatalogItemId { get; set; }
