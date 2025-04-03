@@ -10,6 +10,8 @@ namespace Quadro.Interface.SingleProfiles
         string Description { get; }
         public double Width { get; set; }
         public double Height { get; set; }
+        public double OffsetX { get; set; }
+        public double OffsetY { get; set; }
         string? CatalogItemId { get; }
         string? ColorId { get; }
         string MaterialId { get; }
