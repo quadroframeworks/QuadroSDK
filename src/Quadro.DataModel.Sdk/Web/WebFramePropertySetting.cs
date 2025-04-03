@@ -1,4 +1,5 @@
 ﻿using Quadro.Globalization.Attributes;
+using Quadro.Interface.CustomProperties;
 using Quadro.Interface.Solutions;
 using Quadro.Utils.Storage;
 
@@ -23,5 +24,6 @@ namespace Quadro.DataModel.Entities.Solutions
 		[Header("Max. value", Globalization.Language.en)]
 		[Header("Max. waarde", Globalization.Language.nl)]
 		public double MaxValue { get; set; }
+
 	}
 }
