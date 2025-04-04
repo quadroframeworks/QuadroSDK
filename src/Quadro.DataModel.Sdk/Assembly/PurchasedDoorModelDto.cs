@@ -23,5 +23,6 @@ namespace Quadro.DataModel.Assembly
         public Rect3DDto Bounds { get; set; } = null!;
         public WireFrameModelDto WireFrame { get; set; } = null!;
         public Matrix3DDto DoorToFrameTransform { get; set; } = null!;
+        public Drawing2DDto? Drawing { get; set; }
     }
 }
