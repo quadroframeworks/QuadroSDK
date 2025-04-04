@@ -154,7 +154,6 @@ namespace Quadro.Interface.Assemblies
         bool AllowVentGrill { get; set; }
         bool AllowSill { get; set; }
         double WireOffsetZ { get; }
-        public string? OuterMillingId { get; set; }
         string? PlateId { get; set; }
         string? DowelApplicationId { get; }
         IEnumerable<IPlacementOption> Options { get; }
@@ -169,6 +168,7 @@ namespace Quadro.Interface.Assemblies
 
         //Depending on type, one of these has a value
         string? RawFrameId { get; }
+        public string? OuterMillingId { get; set; }
         string? HingeAndLockId { get; set; }
     }
 
