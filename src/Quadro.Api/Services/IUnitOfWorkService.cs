@@ -33,6 +33,7 @@ namespace Quadro.Api.Services
         //Collections per entity
         Task<EntityCollection> GetItems(string endpoint, string? filter);
         Task<EntitySummary> GetItem(string endpoint, string dtoId);
+        Task<EntitySummary> CopyItem(string endpoint, string dtoId);
         Task<FilterTree> GetFilterTree(string endpoint);
         Task<SelectableValueCollection> GetSelectableValues(string endpoint, UnitOfWork uow, string dtoId, string propertyName);
 

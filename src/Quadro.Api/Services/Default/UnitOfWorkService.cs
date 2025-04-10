@@ -190,6 +190,13 @@ namespace Quadro.Api.Services.Default
             return await jsonFunctions.ReadFromJsonAsync<EntityCollection>(response);
         }
 
+        public async Task<EntitySummary> CopyItem(string endpoint, string dtoId)
+        {
+            var client = await clientProvider.GetClient();
+            HttpResponseMessage response = await client.GetAsync($"{endpoint}?dtoId={dtoId}");
+            return await jsonFunctions.ReadFromJsonAsync<EntitySummary>(response);
+        }
+
         public async Task<FilterTree> GetFilterTree(string endpoint)
         {
             var client = await clientProvider.GetClient();

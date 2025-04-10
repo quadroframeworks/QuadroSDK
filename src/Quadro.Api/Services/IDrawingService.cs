@@ -1,4 +1,5 @@
-﻿using Quadro.DataModel.Drawing;
+﻿using Quadro.DataModel.Common;
+using Quadro.DataModel.Drawing;
 using Quadro.DataModel.Geometrics;
 using Quadro.DataModel.Model;
 using Quadro.DataModel.Production;
@@ -18,6 +19,7 @@ namespace Quadro.Api.Services
         Task<Drawing2DDto> GetSectionView(MainAssemblyModelDto model, int sectionId);
         Task<string> GetFrontViewSvg(MainAssemblyModelDto model);
         Task<string> GetSectionViewSvg(MainAssemblyModelDto model, int sectionId);
+        Task<Thumbnail> GetThumbnail(string endpoint, string thumbnailId);
         Task<HeaderedDescription> GetFrameDescription(MainAssemblyModelDto model);
         Task<string> ConvertDrawingToDxf(Drawing2DDto drawing);
         Task<string> ConvertDrawingToSvg(Drawing2DDto drawing);
@@ -25,5 +27,6 @@ namespace Quadro.Api.Services
         Task<string> ConvertWorkbookToSvg(WorkbookDto workbook);
         Task<byte[]> ConvertWorkbookToPdf(WorkbookDto workbook);
         Task<byte[]> ConvertSawListToPdf(SawListDto sawList);
+        
     }
 }

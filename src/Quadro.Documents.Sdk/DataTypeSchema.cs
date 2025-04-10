@@ -34,6 +34,7 @@ namespace Quadro.Documents
         public string GetSelectableValuesEndPoint { get; set; } = null!;
         public string GetItemsEndPoint { get; set; } = null!;
         public string GetItemEndPoint { get; set; } = null!;
+        public string CopyItemEndPoint { get; set; } = null!;
         public string CreateEndPoint { get; set; } = null!;
         public string ReadEndPoint { get; set; } = null!;
         public string UpdateEndPoint { get; set; } = null!;
@@ -46,7 +47,7 @@ namespace Quadro.Documents
 		public string GetFilterTreeEndPoint { get; set; } = null!;
 		public string SetValueEndPoint { get; set; } = null!;
         public string ValidateEndPoint { get; set; } = null!;
-
+        public string? ThumbnailEndPoint { get; set; }
 
         public string? DataModelEndPoint {  get; set; }
         public bool SupportsVariants { get; set; }

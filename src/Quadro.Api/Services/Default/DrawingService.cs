@@ -1,10 +1,12 @@
-﻿using Quadro.DataModel.Drawing;
+﻿using Quadro.DataModel.Common;
+using Quadro.DataModel.Drawing;
 using Quadro.DataModel.Geometrics;
 using Quadro.DataModel.Model;
 using Quadro.DataModel.Production;
 using Quadro.ToolSet;
 using Quadro.Utils.Logging;
 using System.Net.Http.Json;
+using static System.Collections.Specialized.BitVector32;
 
 namespace Quadro.Api.Services.Default
 {
@@ -55,6 +57,13 @@ namespace Quadro.Api.Services.Default
             return await jsonFunctions.ReadAsStringAsync(response);
         }
 
+        public async Task<Thumbnail> GetThumbnail(string endpoint, string thumbnailId)
+        {
+            var url = $"{endpoint}?thumbnailId={thumbnailId}";
+            var client = await clientProvider.GetClient();
+            var response = await client.GetAsync(url);
+            return await jsonFunctions.ReadFromJsonAsync<Thumbnail>(response);
+        }
         public async Task<HeaderedDescription> GetFrameDescription(MainAssemblyModelDto model)
         {
             var url = $"{baseUri}/GetFrameDescription";

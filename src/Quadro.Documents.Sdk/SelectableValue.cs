@@ -33,6 +33,7 @@ namespace Quadro.Documents
 		public string Description { get; set; } = null!;
         public string? Value { get; set; }
         public string? FilterString { get; set; }
+        public string? ThumbnailId { get; set; }
         public List<EnumTranslation>? Translations { get; set; }
 
     }
@@ -41,5 +42,6 @@ namespace Quadro.Documents
     {
         public SelectableValueCollection() { }
         public List<SelectableValue> Values { get; set; } = new List<SelectableValue>();
+        public string? ThumbnailEndpoint { get; set; }
     }
 }

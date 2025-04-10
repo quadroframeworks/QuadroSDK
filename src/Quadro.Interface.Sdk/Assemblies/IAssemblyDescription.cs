@@ -154,6 +154,7 @@ namespace Quadro.Interface.Assemblies
         bool AllowVentGrill { get; set; }
         bool AllowSill { get; set; }
         double WireOffsetZ { get; }
+        string? RawFrameId { get; set; } //For seal frames
         string? PlateId { get; set; }
         string? DowelApplicationId { get; }
         IEnumerable<IPlacementOption> Options { get; }
