@@ -153,6 +153,7 @@ namespace Quadro.Interface.Assemblies
         bool AllowFilling { get; set; }
         bool AllowVentGrill { get; set; }
         bool AllowSill { get; set; }
+        bool BottomAtDaySide { get; set; }
         double WireOffsetZ { get; }
         string? RawFrameId { get; set; } //For seal frames
         string? PlateId { get; set; }
