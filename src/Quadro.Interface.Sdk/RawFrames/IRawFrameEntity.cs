@@ -8,6 +8,8 @@ namespace Quadro.Interface.RawFrames
         string Id { get; }
         string Name { get; }
         string WireFrameId { get; }
+        bool AllowFilling { get; }
+        bool AllowSill { get; }
         FrameContextType ContextType { get; } //Used for filtering
         IEnumerable<IPartConfiguration> Parts { get; }
         IEnumerable<IPartConfiguration> AdditionalParts { get; }

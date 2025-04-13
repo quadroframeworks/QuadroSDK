@@ -46,6 +46,7 @@ namespace Quadro.Interface.Assemblies
         string? ExpressionEnable { get; }
         FillingTurnConfiguration TurnConfiguration { get; set; }
         TurnSide TurnSide { get; set; }
+        bool AllowVentGrill { get; set; }
         MultiCompartmentMode MultiCompartmentMode { get; }
         int NrOfMultiCompartments { get; }
         IEnumerable<IMultiCompartmentDivider> Dividers { get; }
@@ -150,10 +151,6 @@ namespace Quadro.Interface.Assemblies
         bool FlipFillingSide { get; }
         bool IsSubCompartment { get; set; }
         int MultiCompartmentIndex { get; set; }
-        bool AllowFilling { get; set; }
-        bool AllowVentGrill { get; set; }
-        bool AllowSill { get; set; }
-        bool BottomAtDaySide { get; set; }
         double WireOffsetZ { get; }
         string? RawFrameId { get; set; } //For seal frames
         string? PlateId { get; set; }
