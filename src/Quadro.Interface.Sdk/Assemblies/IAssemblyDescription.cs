@@ -30,7 +30,6 @@ namespace Quadro.Interface.Assemblies
         IEnumerable<IParentRabbetReference> Rabbets { get; }
         IEnumerable<ISubFramePlacement> SubFrames { get; }
         IEnumerable<IOperationSetPlacement> OperationSets { get; }
-        IEnumerable<IRabbetSelectionFilter> RabbetSelectionFilters { get; }
     }
     public interface IMainAssemblyDescription : IAssemblyDescription
     {
@@ -42,7 +41,7 @@ namespace Quadro.Interface.Assemblies
     public interface IFillingAssemblyDescription : IAssemblyDescription
     {
         FrameContextType AncestorContextType { get; } //Used for filtering and more. This filling can only be applied to this ancestor
-        string? RabbetSystemId { get; }
+        string? TestRabbetSystemId { get; }
         string? ExpressionEnable { get; }
         FillingTurnConfiguration TurnConfiguration { get; set; }
         TurnSide TurnSide { get; set; }
@@ -54,7 +53,7 @@ namespace Quadro.Interface.Assemblies
 
     public interface IBorderAssemblyDescription : IAssemblyDescription
     {
-        string? RabbetSystemId { get; }
+        string? TestRabbetSystemId { get; }
         string? ExpressionEnable { get; }
     }
 

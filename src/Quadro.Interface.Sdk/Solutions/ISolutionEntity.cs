@@ -21,7 +21,7 @@ namespace Quadro.Interface.Solutions
 		string? BorderAssemblyGroupId { get; set; }
 		string? BorderApplicationId { get; set; }
         string? BorderAssemblyId { get; set; }
-        string? BorderRabbetSelectionId { get; set; }
+        string? BorderRabbetSystemId { get; set; }
         string? RawMaterialId { get; set; }
         string? PaintSystemId { get; set; }
         string? ColorId { get; set; }
@@ -71,7 +71,7 @@ namespace Quadro.Interface.Solutions
         string? PlacementOptionId { get; set; }
         string? HingeAndLockOptionId { get; set; }
         string? PurchasedDoorId { get; set; }
-        string? RabbetSelectionId { get; set; }
+        string? RabbetSystemId { get; set; }
         string? PaintSystemId { get; set; }
         string? ColorId { get; set; }
         string? GlassId { get; set; }
