@@ -5,6 +5,7 @@ namespace Quadro.Interface.Assemblies
 
 	public interface IRabbetSystemEntity
     {
+        string Id { get; }
         string Name { get; }
         FrameContextType ContextType { get; }
         FillingTurnConfiguration TurnConfig { get; }

@@ -25,7 +25,7 @@ namespace Quadro.Interface.Assemblies
         string? TestPlacementOptionId { get; set; }
         string? TestHingAndLockOptionId { get; set; }
         string? TestPurchasedDoorId { get; set; }
-        string? TestRabbetSelectionId { get; }
+        string? TestRabbetSystemId { get; }
         string? TestSillId { get; }
         IEnumerable<IParentRabbetReference> Rabbets { get; }
         IEnumerable<ISubFramePlacement> SubFrames { get; }

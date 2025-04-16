@@ -57,7 +57,6 @@ namespace Quadro.DataModel.Entities.Web
         [Header("Sill", Globalization.Language.en)]
         [Header("Onderdorpel", Globalization.Language.nl)]
         public bool ApplySill { get; set; }
-        public string? SillId { get; set; } //Not for user
 
         [Header("Border", Globalization.Language.en)]
         [Header("Spouwlatten", Globalization.Language.nl)]
@@ -86,10 +85,6 @@ namespace Quadro.DataModel.Entities.Web
 		[Header("Vak", Globalization.Language.nl)]
 		public string Compartment { get; set; } = null!;
 
-		[Header("Configuration", Globalization.Language.en)]
-		[Header("Configuratie", Globalization.Language.nl)]
-		public FillingTurnConfiguration TurnConfiguration { get; set; }
-
 		[Header("Turn side", Globalization.Language.en)]
 		[Header("Draairichting", Globalization.Language.nl)]
 		public TurnSide TurnSide { get; set; }
@@ -107,50 +102,22 @@ namespace Quadro.DataModel.Entities.Web
         public bool IsGlassFilling { get; set; }
 
 
-
 		[Header("Filling group", Globalization.Language.en)]
 		[Header("Vullinggroep", Globalization.Language.nl)]
 		public string? AssemblyGroupId { get; set; }
-        public bool AssemblyGroupFixed { get; set; } //Not for user
-
-        [Header("Filling", Globalization.Language.en)]
-		[Header("Vakvulling", Globalization.Language.nl)]
-		public string? AssemblyApplicationId { get; set; }
-        public bool AssemblyApplicationFixed { get; set; } //Not for user
 
         [Header("Filling option", Globalization.Language.en)]
         [Header("Vuloptie", Globalization.Language.nl)]
         public string? AssemblyFillingOptionId { get; set; }
-        public bool AssemblyFillingOptionFixed { get; set; } //Not for user
-
-
-        public string? AssemblyFillingId { get; set; } //Not for user
-        public string? AssemblyRabbetSelectionId { get; set; } //Not for user
-
-
-        [Header("Glass filling group", Globalization.Language.en)]
-        [Header("Glas vulgroep", Globalization.Language.nl)]
-        public string? GlassAssemblyGroupId { get; set; }
-        public bool GlassAssemblyGroupFixed { get; set; } //Not for user
-
-        [Header("Glass", Globalization.Language.en)]
-		[Header("Glas", Globalization.Language.nl)]
-		public string? GlassApplicationId { get; set; }
-        public bool GlassApplicationFixed { get; set; } //Not for user
 
         [Header("Glass filling option", Globalization.Language.en)]
         [Header("Vuloptie glas", Globalization.Language.nl)]
         public string? GlassFillingOptionId { get; set; }
-        public bool GlassFillingOptionFixed { get; set; } //Not for user
 
-        public string? GlassFillingId { get; set; } //Not for user
-        public string? GlassRabbetSelectionId { get; set; } //Not for user
 
         [Header("Use safety glass", Globalization.Language.en)]
 		[Header("Veiligheidsglas", Globalization.Language.nl)]
 		public bool UseSafetyGlass { get; set; }
-
-
 
 		[Header("Vent grill", Globalization.Language.en)]
 		[Header("Ventilatierooster", Globalization.Language.nl)]
@@ -159,8 +126,6 @@ namespace Quadro.DataModel.Entities.Web
 		[Header("Vent grill color", Globalization.Language.en)]
 		[Header("Roosterkleur", Globalization.Language.nl)]
 		public string? VentGrillColorId { get; set; }
-
-
 
 		[Header("Input priority", Globalization.Language.en)]
 		[Header("Ingave prioriteit", Globalization.Language.nl)]
