@@ -1,4 +1,5 @@
 ﻿using Quadro.DataModel.Entities.Solutions;
+using Quadro.DataModel.Model;
 using Quadro.Globalization.Attributes;
 using Quadro.Interface.Assemblies;
 using Quadro.Interface.Enums;
