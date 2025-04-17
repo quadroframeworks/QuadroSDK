@@ -30,5 +30,12 @@ namespace Quadro.Api.Services.Default
             HttpResponseMessage response = await client.GetAsync($"{webOrderEndpoint}/GetShoppingCart");
             return await jsonFunctions.ReadFromJsonAsync<UnitOfWork>(response);
         }
+
+        public async Task<List<WebShopModelMetaData>> GetWebShopModels()
+        {
+            var client = await clientProvider.GetClient();
+            HttpResponseMessage response = await client.GetAsync($"{webOrderEndpoint}/GetWebShopModels");
+            return await jsonFunctions.ReadFromJsonAsync<List<WebShopModelMetaData>>(response);
+        }
     }
 }
