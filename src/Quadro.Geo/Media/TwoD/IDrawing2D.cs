@@ -41,7 +41,7 @@ namespace CPBase.Geo.Media.TwoD
         IColor Color { get; set; }
         double Thickness { get; set; }
         LineStyle LineStyle { get; }
-        int ZIndex { get; }
+        int ZIndex { get; set; }
         string Layer { get; }
         int? DimensionId { get; }
         void Scale(double factor, bool keepEntitySize);
@@ -56,7 +56,7 @@ namespace CPBase.Geo.Media.TwoD
         IBrush? FillBrush { get; }
         double Thickness { get; set; }
         LineStyle LineStyle { get; }
-        int ZIndex { get; }
+        int ZIndex { get; set; }
         string Layer { get; }
         int? DimensionId { get; }
         void Scale(double factor, bool keepEntitySize);

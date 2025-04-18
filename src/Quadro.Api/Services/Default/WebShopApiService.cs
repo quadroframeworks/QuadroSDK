@@ -1,4 +1,6 @@
-﻿using Quadro.Documents.UnitOfWork;
+﻿using Quadro.DataModel.Common;
+using Quadro.DataModel.Entities.Images;
+using Quadro.Documents.UnitOfWork;
 using Quadro.Utils.Logging;
 using System;
 using System.Collections.Generic;
@@ -23,6 +25,7 @@ namespace Quadro.Api.Services.Default
 
         private string webOrderEndpoint = "WebOrderV2";
         private string webFrameEndpoint = "WebFrameV2";
+        private string companyEndpoint = "Company";
 
         public async Task<UnitOfWork> GetShoppingCart()
         {
@@ -36,6 +39,20 @@ namespace Quadro.Api.Services.Default
             var client = await clientProvider.GetClient();
             HttpResponseMessage response = await client.GetAsync($"{webOrderEndpoint}/GetWebShopModels");
             return await jsonFunctions.ReadFromJsonAsync<List<WebShopModelMetaData>>(response);
+        }
+
+        public async Task<ImageDto> GetCompanyLogo()
+        {
+            var client = await clientProvider.GetClient();
+            HttpResponseMessage response = await client.GetAsync($"{companyEndpoint}/GetCompanyLogo");
+            return await jsonFunctions.ReadFromJsonAsync<ImageDto>(response);
+        }
+
+        public async Task<Theme> GetTheme()
+        {
+            var client = await clientProvider.GetClient();
+            HttpResponseMessage response = await client.GetAsync($"{companyEndpoint}/GetTheme");
+            return await jsonFunctions.ReadFromJsonAsync<Theme>(response);
         }
     }
 }

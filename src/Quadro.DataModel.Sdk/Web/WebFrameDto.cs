@@ -115,6 +115,9 @@ namespace Quadro.DataModel.Entities.Web
         [Header("Vuloptie glas", Globalization.Language.nl)]
         public string? GlassFillingOptionId { get; set; }
 
+        [Header("Purchased door", Globalization.Language.en)]
+        [Header("Koopdeur", Globalization.Language.nl)]
+        public string? PurchasedDoorId { get; set; }
 
         [Header("Use safety glass", Globalization.Language.en)]
 		[Header("Veiligheidsglas", Globalization.Language.nl)]

@@ -1,10 +1,6 @@
 ﻿using Quadro.DataModel.Common;
+using Quadro.DataModel.Entities.Images;
 using Quadro.Documents.UnitOfWork;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Quadro.Api.Services
 {
@@ -12,6 +8,8 @@ namespace Quadro.Api.Services
     {
         Task<UnitOfWork> GetShoppingCart();
         Task<List<WebShopModelMetaData>> GetWebShopModels();
+        Task<ImageDto> GetCompanyLogo();
+        Task<Theme> GetTheme();
     }
 
 
