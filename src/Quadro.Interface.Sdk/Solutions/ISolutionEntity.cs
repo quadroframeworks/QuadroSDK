@@ -18,6 +18,7 @@ namespace Quadro.Interface.Solutions
         string Name { get; set; }
         string WireFrameId { get; set; }
         string MainAssemblyId { get; set; }
+        string? PartHeightId { get; set; }
 		string? BorderAssemblyGroupId { get; set; }
 		string? BorderApplicationId { get; set; }
         string? BorderAssemblyId { get; set; }
@@ -41,6 +42,15 @@ namespace Quadro.Interface.Solutions
         string PropertyName { get; set; }
         double Value { get; set; }
     }
+    public interface IPossibleDecoration
+    {
+
+    }
+
+    public interface IPossiblePartHeight
+    {
+        double Height { get; }
+    }
 
     public interface IAdditionalPart
     {
@@ -60,6 +70,7 @@ namespace Quadro.Interface.Solutions
         [EnumValue("Verticaal", Globalization.Language.nl)]
         Vertical,
     }
+
 
     public interface ISolutionFilling : ISolutionHandle, ICustomizable
     {

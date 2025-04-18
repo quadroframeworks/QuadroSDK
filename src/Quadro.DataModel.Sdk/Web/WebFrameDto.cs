@@ -31,6 +31,10 @@ namespace Quadro.DataModel.Entities.Web
         [Header("Decoratie", Globalization.Language.nl)]
         public string? DecorationGroupId { get; set; }
 
+        [Header("Part height", Globalization.Language.en)]
+        [Header("Basismaat", Globalization.Language.nl)]
+        public string? PartHeightId { get; set; }
+
         [Header("Description", Globalization.Language.en)]
         [Header("Omschrijving", Globalization.Language.nl)]
         public string Description { get; set; } = string.Empty;
